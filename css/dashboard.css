@@ -113,11 +113,17 @@ a:hover i {
 }
 
 .main-container{
-    grid-area: main;
-    overflow-y: auto;
-    padding:20px 20px;
-    color:rgba(65, 63, 63, 0.95);
-}
+    width: 70%;
+    margin: 0 auto;
+    position: absolute;
+    top: 35%;
+    left: 50%; 
+    transform: translate(-50%, -50%);
+    font-size: 15px;
+    z-index: -1;
+    text-align: center;
+    }
+
 
 .main-title{
     display:flex;
