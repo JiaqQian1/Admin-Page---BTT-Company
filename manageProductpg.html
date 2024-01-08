@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BTT Music Shows Booking Ticket</title>
+    <link rel="stylesheet" href="./css/manageProduct.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+    <div class="container">
+        <nav>
+            <ul>    
+                <li><a href="#" class="logo">
+                    <img src="./images/logo.png">
+                    <span class="nav-item">Admin</span>
+                </a></li>
+                <li>
+                    <a href="./adminDashboard.html">
+                        <i class="fa fa-tachometer" aria-hidden="true"></i>
+                        <span class="nav-item">Dashboard</span>
+                    </a>
+                </li>
+        
+            <li>
+                <a href="./manageorderpg.html">
+                    <i class="fa fa-shopping-bag" aria-hidden="true"></i>
+                    <span class="nav-item">Order</span>
+                </a>
+            </li>
+
+            <li>
+                <a href="./manageProductpg.html">
+                    <i class="fa fa-archive" aria-hidden="true"></i>
+                    <span class="nav-item">Product</span>
+                </a>
+            </li>
+
+            <li>
+                <a href="./manageCategorypg.html">
+                    <i class="fa fa-folder-open" aria-hidden="true"></i>
+                    <span class="nav-item">Categories</span>
+                </a>
+            </li>
+
+            <li>
+                <a href="#">
+                    <i class="fa fa-database" aria-hidden="true"></i>
+                    <span class="nav-item">Report</span>
+                </a>
+            </li>
+
+            <li>
+                <a href="#" class="logout">
+                    <i class="fa fa-sign-out" aria-hidden="true"></i>
+                    <span class="nav-item">Log Out</span>
+                </a>
+            </li>
+
+        </ul>
+
+
+        </nav>
+
+        <section class="main">
+            <div class="main-top">
+                <h1>Product</h1> 
+                <i class="fa fa-cogs" aria-hidden="true"></i>
+            </div>
+        </section>
+
+    </div>
+        <section class="product">
+            <div class="product-list">
+                <div class="add-button-container">
+                    <button class="add-button" onclick="openAddProductModal()">ADD</button>
+                </div>
+                <h1>Product List</h1>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Product Name</th>
+                            <th>Types</th>
+                            <th>Date</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+
+
+                    <tbody>
+                        <tr>
+                            <td class="productId">P01</td>
+                            <td class="productName">BlackPink Concert</td>
+                            <td class="productType">Concert</td>
+                            <td class="productDate">23/4/2024</td>
+                            <td>
+                                <button class="view-button">VIEW</button>
+                                <!-- Modify your "EDIT" button like this -->
+                                <button class="edit-button" onclick="openEditModal('01', 'Elvin', '05/01/01', 'BLACKPINK CONCERT', 'A100')">EDIT</button>
+
+                                <button class="delete-button">DELETE</button>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="productId">P02</td>
+                            <td class="productName">Xue ZhiQian Concert</td>
+                            <td class="productType">Concert</td>
+                            <td class="productDate">24/5/2024</td>
+                            <td>
+                                <button class="view-button">VIEW</button>
+                                <!-- Modify your "EDIT" button like this -->
+                                <button class="edit-button" onclick="openEditModal('01', 'Elvin', '05/01/01', 'BLACKPINK CONCERT', 'A100')">EDIT</button>
+
+                                <button class="delete-button">DELETE</button>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="productId">P03</td>
+                            <td class="productName">Angela Zhang Concert</td>
+                            <td class="productType">Concert</td>
+                            <td class="productDate">25/6/2024</td>
+                            <td>
+                                <button class="view-button">VIEW</button>
+                                <!-- Modify your "EDIT" button like this -->
+                                <button class="edit-button" onclick="openEditModal('01', 'Elvin', '05/01/01', 'BLACKPINK CONCERT', 'A100')">EDIT</button>
+
+                                <button class="delete-button">DELETE</button>
+                            </td>
+                        </tr>
+
+                        
+                        <tr>
+                            <td class="productId">P04</td>
+                            <td class="productName">Maneskin Live Band</td>
+                            <td class="productType">Live Band</td>
+                            <td class="productDate">27/7/2024</td>
+                            <td>
+                                <button class="view-button">VIEW</button>
+                                <!-- Modify your "EDIT" button like this -->
+                                <button class="edit-button" onclick="openEditModal('01', 'Elvin', '05/01/01', 'BLACKPINK CONCERT', 'A100')">EDIT</button>
+
+                                <button class="delete-button">DELETE</button>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="productId">P05</td>
+                            <td class="productName">ColdPlay Live Band</td>
+                            <td class="productType">Live Band</td>
+                            <td class="productDate">2/8/2024</td>
+                            <td>
+                                <button class="view-button">VIEW</button>
+                                <!-- Modify your "EDIT" button like this -->
+                                <button class="edit-button" onclick="openEditModal('01', 'Elvin', '05/01/01', 'BLACKPINK CONCERT', 'A100')">EDIT</button>
+
+                                <button class="delete-button">DELETE</button>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="productId">P06</td>
+                            <td class="productName">Maroon 5 Live Band</td>
+                            <td class="productType">Live Band</td>
+                            <td class="productDate">27/2/2024</td>
+                            <td>
+                                <button class="view-button">VIEW</button>
+                                <!-- Modify your "EDIT" button like this -->
+                                <button class="edit-button" onclick="openEditModal('01', 'Elvin', '05/01/01', 'BLACKPINK CONCERT', 'A100')">EDIT</button>
+
+                                <button class="delete-button">DELETE</button>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="productId">P07</td>
+                            <td class="productName">Vienna Boys' Choir</td>
+                            <td class="productType">Choir</td>
+                            <td class="productDate">11/3/2024</td>
+                            <td>
+                                <button class="view-button">VIEW</button>
+                                <!-- Modify your "EDIT" button like this -->
+                                <button class="edit-button" onclick="openEditModal('01', 'Elvin', '05/01/01', 'BLACKPINK CONCERT', 'A100')">EDIT</button>
+
+                                <button class="delete-button">DELETE</button>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="productId">P08</td>
+                            <td class="productName">The Sixteen Choir</td>
+                            <td class="productType">Choir</td>
+                            <td class="productDate">11/4/2024</td>
+                            <td>
+                                <button class="view-button">VIEW</button>
+                                <!-- Modify your "EDIT" button like this -->
+                                <button class="edit-button" onclick="openEditModal('01', 'Elvin', '05/01/01', 'BLACKPINK CONCERT', 'A100')">EDIT</button>
+
+                                <button class="delete-button">DELETE</button>
+                            </td>
+                        </tr>
+                    
+                    </tbody>
+                </table>
+
+            </div>
+        </section>
+
+
+    </div>
+
+    <!--Help me to complete this part-->
+    <div id="addProductModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h2>Add New Product</h2>
+            <form id="addProductForm">
+                <label for="productId">ID:</label>
+                <input type="text" id="productId" name="productId" required>
+    
+                <label for="productName">Product Name:</label>
+                <input type="text" id="productName" name="productName" required>
+    
+                <label for="productType">Types:</label>
+                <input type="text" id="productType" name="productType" required>
+    
+                <label for="productDate">Date:</label>
+                <input type="text" id="productDate" name="productDate" required>
+    
+                <button type="button" onclick="addProduct(productId,productName,productType,productDate)">Add Product</button>
+            </form>
+        </div>
+    </div>
+    <script src="./js/manageProduct.js"></script>
+    
+</body>
+</html>
