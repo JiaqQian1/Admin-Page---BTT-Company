@@ -29,7 +29,7 @@ function addProduct(productId,productName,productType,productDate) {
             <td class="productDate">${productDate}</td>
             <td>
                 <button class="view-button">VIEW</button>
-                <button class="edit-button" onclick="openEditModal('01', 'Elvin', '05/01/01', 'BLACKPINK CONCERT', 'A100')">EDIT</button>
+                <button class="edit-button" onclick="openEditModal('${productId}', '${productName}', '${productType}', '${productDate}')">EDIT</button>
                 <button class="delete-button">DELETE</button>
             </td>
         </tr>
@@ -68,18 +68,10 @@ function saveEditedProduct() {
     for (var i = 0; i < rows.length; i++) {
         var productIdCell = rows[i].querySelector('.productId');
         if (productIdCell && productIdCell.textContent.trim() === editedProductId) {
-            // Update the product details in the table
-            rows[i].innerHTML = `
-                <td class="productId">${editedProductId}</td>
-                <td class="productName">${editedProductName}</td>
-                <td class="productType">${editedProductType}</td>
-                <td class="productDate">${editedProductDate}</td>
-                <td>
-                    <button class="view-button">VIEW</button>
-                    <button class="edit-button" onclick="openEditModal('${editedProductId}', '${editedProductName}', '${editedProductType}', '${editedProductDate}')">EDIT</button>
-                    <button class="delete-button">DELETE</button>
-                </td>
-            `;
+            // Update the specific cells in the table
+            rows[i].querySelector('.productName').textContent = editedProductName;
+            rows[i].querySelector('.productType').textContent = editedProductType;
+            rows[i].querySelector('.productDate').textContent = editedProductDate;
             break; // Stop the loop once the row is updated
         }
     }
