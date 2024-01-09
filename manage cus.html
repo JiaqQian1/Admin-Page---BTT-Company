@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BTT Music Shows Booking Ticket</title>
+    <link rel="stylesheet" href="./css/manage cust.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+    <div class="container">
+        <nav>
+            <ul>    
+                <li><a href="#" class="logo">
+                    <img src="./images/logo.png">
+                    <span class="nav-item">Admin</span>
+                </a></li>
+                <li>
+                    <a href="./adminDashboard.html">
+                        <i class="fa fa-tachometer" aria-hidden="true"></i>
+                        <span class="nav-item">Dashboard</span>
+                    </a>
+                </li>
+        
+            <li>
+                <a href="./manageorderpg.html">
+                    <i class="fa fa-shopping-bag" aria-hidden="true"></i>
+                    <span class="nav-item">Order</span>
+                </a>
+            </li>
+
+            <li>
+                <a href="./manageProductpg.html">
+                    <i class="fa fa-archive" aria-hidden="true"></i>
+                    <span class="nav-item">Product</span>
+                </a>
+            </li>
+
+            <li>
+                <a href="./manageCategorypg.html">
+                    <i class="fa fa-folder-open" aria-hidden="true"></i>
+                    <span class="nav-item">Categories</span>
+                </a>
+            </li>
+
+            <li>
+                <a href="#">
+                    <i class="fa fa-database" aria-hidden="true"></i>
+                    <span class="nav-item">Report</span>
+                </a>
+            </li>
+
+            <li>
+                <a href="#" class="logout">
+                    <i class="fa fa-sign-out" aria-hidden="true"></i>
+                    <span class="nav-item">Log Out</span>
+                </a>
+            </li>
+
+        </ul>
+
+
+        </nav>
+
+        <section class="main">
+            <div class="main-top">
+                <h1>Product</h1> 
+                <i class="fa fa-cogs" aria-hidden="true"></i>
+            </div>
+        </section>
+
+    </div>
+    <div class="container">
+        <section class="customer">
+            <div class="customer-list">
+                <div class="add-button-container">
+                    <button class="add-button" onclick="openAddCustomerModal()">ADD</button>
+                </div>
+                <h1>Customer List</h1>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Ticket</th>
+                            <th>Action</th>
+                    </thead>
+
+
+                    <tbody>
+                        <tr>
+                            <td class="customerId">01</td>
+                            <td class="customerName">John Doe</td>
+                            <td class="customerEmail">john.doe@gmail.com</td>
+                            <td class="customerTicket">A123</td>
+                            <td>
+                                <button class="view-button">VIEW</button>
+                                <button class="edit-button" onclick="openEditModal('01', 'John Doe', 'john.doe@gmail.com', 'A123')">EDIT</button>
+
+                                <button class="delete-button">DELETE</button>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="customerId">02</td>
+                            <td class="customerName">Jane Smith</td>
+                            <td class="customerEmail">jane.smith@gmail.com</td>
+                            <td class="customerTicket">B456</td>
+                            <td>
+                                <button class="view-button">VIEW</button>
+                                <button class="edit-button" onclick="openEditModal('C02', 'Jane Smith', 'jane.smith@gmail.com', 'B456')">EDIT</button>
+
+                                <button class="delete-button">DELETE</button>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="customerId">03</td>
+                            <td class="customerName">Alice Johnson</td>
+                            <td class="customerEmail">alice.johnson@gmail.com</td>
+                            <td class="customerTicket">C789</td>
+                            <td>
+                                <button class="view-button">VIEW</button>
+                                <button class="edit-button" onclick="openEditModal('03', 'Alice Johnson', 'alice.johnson@gmail.com', 'C789')">EDIT</button>
+
+                                <button class="delete-button">DELETE</button>
+                            </td>
+                        </tr>
+
+                    </tbody>
+                </table>
+
+            </div>
+        </section>
+
+
+    </div>
+
+
+    <div id="addCustomerModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('addCustomerModal')">&times;</span>
+            <h2>Add New Customer</h2>
+            <br>
+            <form id="addCustomerForm">
+                <label for="customerId">ID:</label>
+                <input type="text" id="customerId" name="customerId" required>
+                <br>
+                <label for="customerName">Customer Name:</label>
+                <input type="text" id="customerName" name="customerName" required>
+                <br>
+                <label for="customerEmail">Email:</label>
+                <input type="text" id="customerEmail" name="customerEmail" required>
+                <br>
+                <label for="customerTicket">Ticket:</label>
+                <input type="text" id="customerTicket" name="customerTicket" required>
+                <br>
+                <br>
+                <button type="button" onclick="addCustomer(customerId, customerName, customerEmail, customerTicket)">Add Customer</button>
+            </form>
+        </div>
+    </div>
+    
+
+    <div id="editCustomerModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('editCustomerModal')">&times;</span>
+            <h2>Edit Customer</h2>
+            <form id="editCustomerForm">
+                <label for="editCustomerId">ID:</label>
+                <input type="text" id="editCustomerId" name="editCustomerId" required>
+    
+                <label for="editCustomerName">Customer Name:</label>
+                <input type="text" id="editCustomerName" name="editCustomerName" required>
+    
+                <label for="editCustomerEmail">Email:</label>
+                <input type="text" id="editCustomerEmail" name="editCustomerEmail" required>
+    
+                <label for="editCustomerTicket">Ticket:</label>
+                <input type="text" id="editCustomerTicket" name="editCustomerTicket" required>
+    
+                <button type="button" onclick="saveEditedCustomer()">Save Changes</button>
+            </form>
+        </div>
+    </div>
+    
+
+ 
+
+    <script src="./js/manage cust.js"></script>
+    
+</body>
+</html>
