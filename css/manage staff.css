@@ -24,7 +24,7 @@ nav {
     background: #fff;
     overflow: hidden;
     transition: 1s;
-    z-index: 1;
+    z-index:1;
 }
 
 nav:hover {
@@ -125,15 +125,15 @@ a:hover i {
     border-radius: 10px;
     box-shadow: 0 20px 35px rgba(0, 0, 0, 0.1);
     position: absolute;
-    top: 35%;
-    left: 50%;
+    top: 35%; /* Adjust the top value as needed */
+    left: 50%; /* Adjust the left value to shift it to the right */
     transform: translate(-50%, -50%);
     font-size: 20px;
     text-align: center;
     margin-top: 100px;
 }
 
-.staff-table {
+.table {
     border-collapse: collapse;
     margin: 25px 0;
     font-size: 15px;
@@ -142,38 +142,38 @@ a:hover i {
     border-radius: 5px 5px 0 0;
 }
 
-.staff-table thead tr {
+table thead tr {
     color: #fff;
     background: #34AF6D;
     text-align: left;
     font-weight: bold;
 }
 
-.staff-table th,
-.staff-table td {
+.table th,
+.table td {
     text-align: center;
 }
 
-.staff-table tbody tr {
+.table tbody tr {
     border-bottom: 1px solid #ddd;
 }
 
-.staff-table tbody tr:nth-of-type(even) {
+.table tbody tr:nth-of-type(even) {
     background: #f3f3f3;
 }
 
-.staff-table tbody tr.active {
+.table tbody tr.active {
     font-weight: bold;
     color: #4AD490;
 }
 
-.staff-table tbody tr:last-of-type {
+.table tbody tr:last-of-type {
     border-bottom: 2px solid #4AD489;
 }
 
-.staff-view-button,
-.staff-edit-button,
-.staff-delete-button {
+.view-button,
+.edit-button,
+.delete-button {
     background-color: #34AF6D;
     color: #fff;
     border: none;
@@ -184,13 +184,13 @@ a:hover i {
     font-size: 14px;
 }
 
-.staff-view-button:hover,
-.staff-edit-button:hover,
-.staff-delete-button:hover {
+.view-button:hover,
+.edit-button:hover,
+.delete-button:hover {
     background-color: #258C55;
 }
 
-.staff-table td button {
+.table td button {
     margin: 2px;
 }
 
