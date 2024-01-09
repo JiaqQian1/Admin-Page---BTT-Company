@@ -1,5 +1,14 @@
+function openModal(modalId) {
+    var modal = document.getElementById(modalId);
+    modal.style.display = 'block';
+} 
+
 function openAddStaffModal() {
     openModal('addStaffModal');
+}
+
+function closeModal(modalId) {
+    document.getElementById(modalId).style.display = 'none';
 }
 
 function addStaff(staffId, staffName, staffRole) {
@@ -8,7 +17,7 @@ function addStaff(staffId, staffName, staffRole) {
     var staffName = document.getElementById('staffName').value;
     var staffRole = document.getElementById('staffRole').value;
 
-    var tbody = document.querySelector('.staff-table tbody');
+    var tbody = document.querySelector('.table tbody');
 
     // Append new row 
     tbody.innerHTML += `
@@ -28,13 +37,17 @@ function addStaff(staffId, staffName, staffRole) {
     closeModal('addStaffModal');
 }
 
-function openEditStaffModal(staffId, staffName, staffRole) {
+function openEditModal(staffId, staffName, staffRole) {
     openModal('editStaffModal');
 
     // Populate the edit form with the current staff details
     document.getElementById('editStaffId').value = staffId;
     document.getElementById('editStaffName').value = staffName;
     document.getElementById('editStaffRole').value = staffRole;
+}
+
+function closeEditModal() {
+    closeModal('editStaffModal');
 }
 
 function saveEditedStaff() {
@@ -44,7 +57,7 @@ function saveEditedStaff() {
     var editedStaffRole = document.getElementById('editStaffRole').value;
 
     // Get all rows in the table
-    var rows = document.querySelectorAll('.staff-table tbody tr');
+    var rows = document.querySelectorAll('.table tbody tr');
 
     // Loop through the rows to find the one with the matching staff ID
     for (var i = 0; i < rows.length; i++) {
@@ -60,3 +73,4 @@ function saveEditedStaff() {
     // Close the edit modal
     closeEditModal('editStaffModal');
 }
+
