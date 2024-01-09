@@ -1,165 +1,223 @@
-    <!DOCTYPE html>
-    <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>BTT Music Shows Booking Ticket</title>
-        <link rel="stylesheet" href="./css/manageorderpage.css">
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    </head>
-    <body>
-        <div class="container">
-            <nav>
-                <ul>    
-                    <li><a href="#" class="logo">
-                        <img src="./images/logo.png">
-                        <span class="nav-item">Admin</span>
-                    </a></li>
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>BTT Music Shows Booking Ticket</title>
+            <link rel="stylesheet" href="./css/manageorderpage.css">
+            <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+        </head>
+        <body>
+            <div class="container">
+                <nav>
+                    <ul>    
+                        <li><a href="#" class="logo">
+                            <img src="./images/logo.png">
+                            <span class="nav-item">Admin</span>
+                        </a></li>
+                        <li>
+                            <a href="#">
+                                <i class="fa fa-tachometer" aria-hidden="true"></i>
+                                <span class="nav-item">Dashboard</span>
+                            </a>
+                        </li>
+                
                     <li>
                         <a href="#">
-                            <i class="fa fa-tachometer" aria-hidden="true"></i>
-                            <span class="nav-item">Dashboard</span>
+                            <i class="fa fa-shopping-bag" aria-hidden="true"></i>
+                            <span class="nav-item">Order</span>
                         </a>
                     </li>
-            
-                <li>
-                    <a href="#">
-                        <i class="fa fa-shopping-bag" aria-hidden="true"></i>
-                        <span class="nav-item">Order</span>
-                    </a>
-                </li>
-
-                <li>
-                    <a href="#">
-                        <i class="fa fa-database" aria-hidden="true"></i>
-                        <span class="nav-item">Report</span>
-                    </a>
-                </li>
-
-                <li>
-                    <a href="#" class="logout">
-                        <i class="fa fa-sign-out" aria-hidden="true"></i>
-                        <span class="nav-item">Log Out</span>
-                    </a>
-                </li>
-
-            </ul>
-
-
-            </nav>
-
-            <section class="main">
-                <div class="main-top">
-                    <h1>Order</h1>
-                    <i class="fa fa-cogs" aria-hidden="true"></i>
-                </div>
-            </section>
-
-
-            <section class="order">
-                <div class="order-list">
-                    <div class="add-button-container">
-                        <button class="add-button">ADD</button>
+    
+                    <li>
+                        <a href="#"> 
+                            <i class="fa fa-database" aria-hidden="true"></i>
+                            <span class="nav-item">Report</span>
+                        </a>
+                    </li>
+    
+                    <li>
+                        <a href="#" class="logout">
+                            <i class="fa fa-sign-out" aria-hidden="true"></i>
+                            <span class="nav-item">Log Out</span>
+                        </a>
+                    </li>
+    
+                </ul>
+    
+    
+                </nav>
+    
+                <section class="main">
+                    <div class="main-top">
+                        <h1>Order</h1>
+                        <i class="fa fa-cogs" aria-hidden="true"></i>
                     </div>
-                    <h1>Order List</h1>
-                    <table class="table">
-                        <thead>
-                            <tr>
-                                <th>ID</th>
-                                <th>Name</th>
-                                <th>Date</th>
-                                <th>Ticket Details</th>
-                                <th>Seat Number</th>
-                                <th>Action</th>
-                            </tr>
-                        </thead>
-
-
-                        <tbody>
-                            <tr>
-                                <td>01</td>
-                                <td>Elvin</td>
-                                <td>05/01/01</td>
-                                <td>BLACKPINK CONCERT</td>
-                                <td>A100</td>
-                                <td>
-                                    <button class="view-button">VIEW</button>
-                                    <!-- Modify your "EDIT" button like this -->
-                                    <button class="edit-button" onclick="openEditModal('01', 'Elvin', '05/01/01', 'BLACKPINK CONCERT', 'A100')">EDIT</button>
-
-                                    <button class="delete-button">DELETE</button>
-                                </td>
-                            </tr>
-
-                            <tr>
-                                <td>02</td>
-                                <td>Starry</td>
-                                <td>05/01/01</td>
-                                <td> MÅNESKIN LIVE BAND</td>
-                                <td>C105</td>
-                                <td>
-                                    <button class="view-button">VIEW</button>
-                                    <!-- Modify your "EDIT" button like this -->
-                                    <button class="edit-button" onclick="openEditModal('01', 'Elvin', '05/01/01', 'BLACKPINK CONCERT', 'A100')">EDIT</button>
-
-                                    <button class="delete-button">DELETE</button>
-                                </td>
-                            </tr>
-
-                            <tr>
-                                <td>03</td>
-                                <td>Khoo Shu Jun</td>
-                                <td>05/01/01</td>
-                                <td> Xue Zhiqian Concert</td>
-                                <td>C104</td>
-                                <td>
-                                    <button class="view-button">VIEW</button>
-                                    <!-- Modify your "EDIT" button like this -->
-                                    <button class="edit-button" onclick="openEditModal('01', 'Elvin', '05/01/01', 'BLACKPINK CONCERT', 'A100')">EDIT</button>
-
-                                    <button class="delete-button">DELETE</button>
-                                </td>
-                            </tr>
-
+                </section>
+    
+    
+                <section class="order">
+                    <div class="order-list">
+                        <div class="add-button-container">
+                            <button class="add-button" onclick="openAddOrder()">ADD</button>
+                        </div>
+                        <h1>Order List</h1>
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Name</th>
+                                    <th>Date</th>
+                                    <th>Ticket Details</th>
+                                    <th>Seat Number</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+    
+    
+                            <tbody>
+                                <tr>
+                                    <td>01</td>
+                                    <td>Elvin</td>
+                                    <td>05/01/2024</td>
+                                    <td>BLACKPINK CONCERT</td>
+                                    <td>A100</td>
+                                    <td>
+                                        <button class="view-button">VIEW</button>
+                                        <button class="edit-button" onclick="openEditModal('01', 'Elvin', '05/01/01', 'BLACKPINK CONCERT', 'A100')">EDIT</button>
+    
+                                        <button class="delete-button">DELETE</button>
+                                    </td>
+                                </tr>
+    
+                                <tr>
+                                    <td>02</td>
+                                    <td>Starry</td>
+                                    <td>05/01/2024</td>
+                                    <td> MÅNESKIN LIVE BAND</td>
+                                    <td>C105</td>
+                                    <td>
+                                        <button class="view-button">VIEW</button>
+                                        <!-- Modify your "EDIT" button like this -->
+                                        <button class="edit-button" onclick="openEditModal('02', 'Starry', '05/01/2024', 'MÅNESKIN LIVE BAND', 'C105')">EDIT</button>
+    
+                                        <button class="delete-button">DELETE</button>
+                                    </td>
+                                </tr>
+    
+                                <tr>
+                                    <td>03</td>
+                                    <td>Khoo Shu Jun</td>
+                                    <td>05/01/2024</td>
+                                    <td> Xue Zhiqian Concert</td>
+                                    <td>C104</td>
+                                    <td>
+                                        <button class="view-button">VIEW</button>
+                                        <!-- Modify your "EDIT" button like this -->
+                                        <button class="edit-button" onclick="openEditModal('02', 'Kooh Shu Jun', '05/01/2024', 'Xue Zhiqian', 'C104')">EDIT</button>
+    
+                                        <button class="delete-button">DELETE</button>
+                                    </td>
+                                </tr>
+    
+                                
+                                <tr>
+                                    <td>04</td>
+                                    <td>Jasmine Tan</td>
+                                    <td>05/01/2024</td>
+                                    <td> BLACKPINK CONCERT</td>
+                                    <td>A105</td>
+                                    <td>
+                                        <button class="view-button">VIEW</button>
+                                        <!-- Modify your "EDIT" button like this -->
+                                        <button class="edit-button" onclick="openEditModal('04', 'Jasmine Tan', '05/01/2024', 'BLACKPINK CONCERT', 'A105')">EDIT</button>
+    
+                                        <button class="delete-button">DELETE</button>
+                                    </td>
+                                </tr>
+    
+                                <tr>
+                                    <td>05</td>
+                                    <td>Teo Yao Yao</td>
+                                    <td>06/01/2024</td>
+                                    <td>THE SIXTEEN CHOIR</td>
+                                    <td>A105</td>
+                                    <td>
+                                        <button class="view-button">VIEW</button>
+                                        <button class="edit-button" onclick="openEditModal('05', 'Teo Yao Yao', '06/01/2024', 'THE SIXTEEN CHOIR', 'A105')">EDIT</button>
+    
+                                        <button class="delete-button">DELETE</button>
+                                    </td>
+                                </tr>
                             
-                            <tr>
-                                <td>04</td>
-                                <td>Jasmine Tan</td>
-                                <td>05/01/01</td>
-                                <td> BLACKPINK CONCERT</td>
-                                <td>A105</td>
-                                <td>
-                                    <button class="view-button">VIEW</button>
-                                    <!-- Modify your "EDIT" button like this -->
-                                    <button class="edit-button" onclick="openEditModal('01', 'Elvin', '05/01/01', 'BLACKPINK CONCERT', 'A100')">EDIT</button>
-
-                                    <button class="delete-button">DELETE</button>
-                                </td>
-                            </tr>
-
-                            <tr>
-                                <td>05</td>
-                                <td>Teo Yao Yao</td>
-                                <td>06/01/01</td>
-                                <td>THE SIXTEEN CHOIR</td>
-                                <td>A105</td>
-                                <td>
-                                    <button class="view-button">VIEW</button>
-                                    <!-- Modify your "EDIT" button like this -->
-                                    <button class="edit-button" onclick="openEditModal('01', 'Elvin', '05/01/01', 'BLACKPINK CONCERT', 'A100')">EDIT</button>
-
-                                    <button class="delete-button">DELETE</button>
-                                </td>
-                            </tr>
-                        
-                        </tbody>
-                    </table>
-
+                            </tbody>
+                        </table>
+    
+                    </div>
+                </section>
+    
+    
+            </div>
+    
+            <div id="addOrder" class="List">
+                <div class="order-content">
+                    <span class="close" onclick="closeList('addOrder')">&times;</span>
+                    <h2>Add New Order</h2>
+                    <br>
+                    <form id="addOrderForm">
+                        <label for="orderId">ID:</label>
+                        <input type="text" id="orderId" name="orderId" required>
+                        <br>
+                        <label for="orderName">Order Name:</label>
+                        <input type="text" id="orderName" name="orderName" required>
+                        <br>
+                        <label for="orderDate">Date:</label>
+                        <input type="text" id="orderDate" name="orderDate" required>
+                       <br>
+                        <label for="ticketDetails">Ticket Details:</label>
+                        <input type="text" id="ticketDetails" name="ticketDetails" required>
+                       <br>
+                       <label for="ticketDetails">Seat Number:</label>
+                       <input type="text" id="seatNumber" name="seatNumber" required>
+                      <br>
+                       <br>
+                        <button type="button" onclick="addOrder(orderId,orderName,orderDate,ticketDetails,seatNumber)">Add Order</button>
+                    </form>
                 </div>
-            </section>
-
-
-        </div>
+            </div>
+        
+            <div id="editOrder" class="List">
+                <div class="order-content">
+                    <span class="close" onclick="closeList('editOrder')">&times;</span>
+                    <h2>Edit</h2>
+                    <form id="editOrderForm">
+                        <label for="editOrderId">ID:</label>
+                        <input type="text" id="editOrderId" name="editOrderId" required>
+            
+                        <label for="editName">Name:</label>
+                        <input type="text" id="editName" name="editName" required>
+            
+                        <label for="editOrderDate">Date:</label>
+                        <input type="text" id="editOrderDate" name="editOrderDate" required>
+            
+                        <label for="editTicketDetails">Ticket Details:</label>
+                        <input type="text" id="editTicketDetails" name="editTicketDetails" required>
+    
+                        <label for="editNumber">Seat Number:</label>
+                        <input type="text" id="editNumber" name="editNumber" required>
+            
+                        <button type="button" onclick="saveEditedModal()">Save Changes</button>
+                    </form>
+                </div>
+            </div>
+        
+         
+        
+            <script src="./js/manageorder.js"></script>
+    
+            
+        </body>
+        </html>
 
         
     </body>
