@@ -10,7 +10,7 @@ function printReport(orderId) {
 
 function printAllReports() {
     var printWindow = window.open('', '_blank');
-    printWindow.document.write('<html><head><title>All Sales Reports</title></head><body>');
+    printWindow.document.write('<html><head><title  >All Sales Reports </title></head><body>');
     printWindow.document.write('<h1>All Sales Reports</h1>');
     printWindow.document.write(document.querySelector('.order-list table').outerHTML);
     printWindow.document.write('</body></html>');

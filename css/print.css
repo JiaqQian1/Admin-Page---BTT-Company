@@ -40,3 +40,23 @@ tr:nth-child(even) {
 tr:hover {
     background-color: #e0e0e0;
 }
+
+button {
+    background-color: #34AF6D;
+    color: white;  
+    padding: 10px 20px;  
+    border: none;  
+    border-radius: 5px; 
+    cursor: pointer;  
+    float: right;
+    margin-bottom: 10px;
+}
+
+button:hover {
+    background-color: #258C55;  
+}
+
+.return
+{
+    color: black;
+}
