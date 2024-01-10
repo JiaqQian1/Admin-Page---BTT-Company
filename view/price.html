@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sales Report</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        section.order {
+            padding: 20px;
+        }
+
+        .order-list {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        tr:hover {
+            background-color: #e0e0e0;
+        }
+    </style>
+</head>
+<body>
+
+<section class="order">
+    <div class="order-list">
+        <h1>Sales Report</h1>
+        <button onclick="printAllReports()">Print All Reports</button>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Date</th>
+                    <th>Ticket Details</th>
+                    <th>Seat Number</th>
+                    <th>Ticket Price</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr>
+                    <td>01</td>
+                    <td>Elvin</td>
+                    <td>05/01/2024</td>
+                    <td>BLACKPINK CONCERT</td>
+                    <td>A100</td>
+                    <td>RM 150</td>
+                </tr>
+                <tr>
+                    <td>01</td>
+                    <td>Elvin</td>
+                    <td>05/01/2024</td>
+                    <td>BLACKPINK CONCERT</td>
+                    <td>A100</td>
+                    <td>RM 150</td>
+                </tr>
+
+                <!-- Add more rows for other orders -->
+
+            </tbody>
+        </table>
+    </div>
+</section>
+
+<script>
+    function printReport(orderId) {
+        var printWindow = window.open('', '_blank');
+        printWindow.document.write('<html><head><title>Sales Report - Order ' + orderId + '</title></head><body>');
+        printWindow.document.write('<h1>Sales Report - Order ' + orderId + '</h1>');
+        printWindow.document.write(document.querySelector('.order-list table').outerHTML);
+        printWindow.document.write('</body></html>');
+        printWindow.document.close();
+        printWindow.print();
+    }
+
+    function printAllReports() {
+        var printWindow = window.open('', '_blank');
+        printWindow.document.write('<html><head><title>All Sales Reports</title></head><body>');
+        printWindow.document.write('<h1>All Sales Reports</h1>');
+        printWindow.document.write(document.querySelector('.order-list table').outerHTML);
+        printWindow.document.write('</body></html>');
+        printWindow.document.close();
+        printWindow.print();
+    }
+</script>
+
+</body>
+</html>
