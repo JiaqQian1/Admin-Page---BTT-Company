@@ -16,16 +16,30 @@
                     <span class="nav-item">Admin</span>
                 </a></li>
                 <li>
-                    <a href="#">
+                    <a href="./adminDashboard.html">
                         <i class="fa fa-tachometer" aria-hidden="true"></i>
                         <span class="nav-item">Dashboard</span>
                     </a>
                 </li>
         
             <li>
-                <a href="#">
+                <a href="./manageorderpg.html">
                     <i class="fa fa-shopping-bag" aria-hidden="true"></i>
                     <span class="nav-item">Order</span>
+                </a>
+            </li>
+
+            <li>
+                <a href="./manageProductpg.html">
+                    <i class="fa fa-archive" aria-hidden="true"></i>
+                    <span class="nav-item">Product</span>
+                </a>
+            </li>
+
+            <li>
+                <a href="./manageCategorypg.html">
+                    <i class="fa fa-folder-open" aria-hidden="true"></i>
+                    <span class="nav-item">Categories</span>
                 </a>
             </li>
 
@@ -50,47 +64,48 @@
 
         <section class="main">
             <div class="main-top">
-                <h1>Manage Staff</h1>
+                <h1>Manage Staff</h1> 
                 <i class="fa fa-cogs" aria-hidden="true"></i>
             </div>
         </section>
 
-
-        <section class="staff">
-            <div class="staff-list">
-                <div class="add-button-container">
-                    <button class="add-button">ADD</button>
-                </div>
-                <h1>Staff List</h1>
-                <table class="table">
-                    <thead>
-                        <tr>
-                            <th>ID</th>
-                            <th>Name</th>
-                            <th>Role</th>
-                            <th>Action</th>
-                        </tr>
-                    </thead>
+        <div class="container">
+            <section class="staff">
+                <div class="staff-list">
+                    <div class="add-button-container">
+                        <button class="add-button" onclick="openAddStaffModal()">ADD</button>
+                    </div>
+                    <h1>Staff List</h1>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Name</th>
+                                <th>Role</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
 
 
                     <tbody>
                         <tr>
-                            <td>01</td>
-                            <td>Tan Jia Qian</td>
-                            <td>Head of Operations</td>
+                            <td class="staffId">101</td>
+                            <td class="staffName">Alice Smith</td>
+                            <td class="staffRole">Manager</td>
                             <td>
                                 <button class="view-button">VIEW</button>
-                                <button class="edit-button">EDIT</button>
+                                <button class="edit-button" onclick="openEditModal('101', 'Alice Smith', 'Manager')">EDIT</button>
                                 <button class="delete-button">DELETE</button>
                             </td>
                         </tr>
+
                         <tr>
-                            <td>02</td>
-                            <td>Bock Wen Xin</td>
-                            <td>Creative Director</td>
+                            <td class="staffId">102</td>
+                            <td class="staffName">Bob Johnson</td>
+                            <td class="staffRole">Sales Representative</td>
                             <td>
                                 <button class="view-button">VIEW</button>
-                                <button class="edit-button">EDIT</button>
+                                <button class="edit-button" onclick="openEditModal('102', 'Bob Johnson', 'Sales Representative')">EDIT</button>
                                 <button class="delete-button">DELETE</button>
                             </td>
                         </tr>
@@ -103,6 +118,53 @@
 
     </div>
 
+    <div id="addStaffModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('addStaffModal')">&times;</span>
+            <h2>Add New Staff</h2>
+            <br>
+            <form id="addStaffForm">
+                <label for="staffId">ID:</label>
+                <input type="text" id="staffId" name="staffId" required>
+                <br>
+                <label for="staffName">Staff Name:</label>
+                <input type="text" id="staffName" name="staffName" required>
+                <br>
+                <label for="staffRole">Role:</label>
+                <input type="text" id="staffRole" name="staffRole" required>
+                <br>
+                <br>
+                <button type="button" onclick="addStaff(staffId, staffName, staffRole)">Add Staff</button>
+            </form>
+        </div>
+    </div>
+    
+    
+
+    <div id="editStaffModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('editStaffModal')">&times;</span>
+            <h2>Edit Staff</h2>
+            <form id="editStaffForm">
+                <label for="editStaffId">ID:</label>
+                <input type="text" id="editStaffId" name="editStaffId" required>
+    
+                <label for="editStaffName">Staff Name:</label>
+                <input type="text" id="editStaffName" name="editStaffName" required>
+    
+                <label for="editStaffRole">Role:</label>
+                <input type="text" id="editStaffRole" name="editStaffRole" required>
+    
+                <button type="button" onclick="saveEditedStaff()">Save Changes</button>
+            </form>
+        </div>
+    </div>
+    
+    
+
+ 
+
+    <script src="./js/manage staff.js"></script>
     
 </body>
 </html>

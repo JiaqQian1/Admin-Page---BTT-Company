@@ -24,6 +24,7 @@ nav {
     background: #fff;
     overflow: hidden;
     transition: 1s;
+    z-index:1;
 }
 
 nav:hover {
@@ -81,7 +82,7 @@ a:hover {
 
 a:hover i {
     color: #34AF6D;
-    transition: 0.5s; /* 添加时间值 */
+    transition: 0.5s;
 }
 
 .logout {
@@ -112,12 +113,10 @@ a:hover i {
     cursor: pointer;
 }
 
-
 .staff {
     margin-top: 20px;
     text-transform: capitalize;
 }
-
 
 .staff-list {
     width: 80%;
@@ -130,11 +129,11 @@ a:hover i {
     left: 50%; /* Adjust the left value to shift it to the right */
     transform: translate(-50%, -50%);
     font-size: 20px;
-    z-index: -1;
-    text-align: center  ;
+    text-align: center;
+    margin-top: 100px;
 }
 
-.table{
+.table {
     border-collapse: collapse;
     margin: 25px 0;
     font-size: 15px;
@@ -143,35 +142,38 @@ a:hover i {
     border-radius: 5px 5px 0 0;
 }
 
-table thead tr{
+table thead tr {
     color: #fff;
     background: #34AF6D;
     text-align: left;
     font-weight: bold;
 }
 
-.table th, .table td{
+.table th,
+.table td {
     text-align: center;
 }
 
-.table tbody tr{
+.table tbody tr {
     border-bottom: 1px solid #ddd;
 }
 
-.table tbody tr:nth-of-type(even){
+.table tbody tr:nth-of-type(even) {
     background: #f3f3f3;
 }
 
-.table tbody tr.active{
+.table tbody tr.active {
     font-weight: bold;
     color: #4AD490;
 }
 
-.table tbody tr:last-of-type{
+.table tbody tr:last-of-type {
     border-bottom: 2px solid #4AD489;
 }
 
-.view-button, .edit-button, .delete-button {
+.view-button,
+.edit-button,
+.delete-button {
     background-color: #34AF6D;
     color: #fff;
     border: none;
@@ -182,10 +184,11 @@ table thead tr{
     font-size: 14px;
 }
 
-.view-button:hover, .edit-button:hover, .delete-button:hover {
+.view-button:hover,
+.edit-button:hover,
+.delete-button:hover {
     background-color: #258C55;
 }
-
 
 .table td button {
     margin: 2px;
@@ -209,4 +212,93 @@ table thead tr{
 
 .add-button:hover {
     background-color: #258C55;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: transparent;
+}
+
+.modal-content {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgb(209, 205, 205);
+    padding: 50px 100px 50px 100px;
+}
+
+.close {
+    position: absolute;
+    top: 20px;
+    right: 10px;
+    font-size: 30px;
+    cursor: pointer;
+    color: white;
+    background-color: rgb(214, 27, 27);
+    width: 20px;
+    height: 30px;
+}
+
+.close:hover {
+    background-color: rgb(221, 101, 101);
+}
+
+#addStaffForm {
+    width: 500px;
+}
+
+#addStaffForm label {
+    font-size: 25px;
+}
+
+#addStaffForm input {
+    width: 500px;
+    height: 30px;
+    border-radius: 5px;
+    border: 1px solid black;
+}
+
+#addStaffForm button {
+    background-color: #30955e;
+    color: white;
+    font-size: 20px;
+    border-radius: 5px;
+    margin-left: 40%;
+}
+
+#addStaffForm button:hover {
+    background-color: #45dd8a;
+}
+
+#editStaffModal {
+    width: 500px;
+}
+
+#editStaffModal label {
+    font-size: 25px;
+}
+
+#editStaffModal input {
+    width: 500px;
+    height: 30px;
+    border-radius: 5px;
+    border: 1px solid black;
+}
+
+#editStaffModal button {
+    background-color: #30955e;
+    color: white;
+    font-size: 20px;
+    border-radius: 5px;
+    margin-left: 40%;
+}
+
+#editStaffModal button:hover {
+    background-color: #45dd8a;
 }
