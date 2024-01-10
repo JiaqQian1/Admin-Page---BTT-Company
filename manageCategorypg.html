@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BTT Music Shows Booking Ticket</title>
+    <link rel="stylesheet" href="./css/manageCategory.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+    <div class="container">
+        <nav>
+            <ul>    
+                <li><a href="#" class="logo">
+                    <img src="./images/logo.png">
+                    <span class="nav-item">Admin</span>
+                </a></li>
+                <li>
+                    <a href="./adminDashboard.html">
+                        <i class="fa fa-tachometer" aria-hidden="true"></i>
+                        <span class="nav-item">Dashboard</span>
+                    </a>
+                </li>
+        
+            <li>
+                <a href="./manageorderpg.html">
+                    <i class="fa fa-shopping-bag" aria-hidden="true"></i>
+                    <span class="nav-item">Order</span>
+                </a>
+            </li>
+
+            <li>
+                <a href="./manageProductpg.html">
+                    <i class="fa fa-archive" aria-hidden="true"></i>
+                    <span class="nav-item">Product</span>
+                </a>
+            </li>
+
+            <li>
+                <a href="./manageCategorypg.html">
+                    <i class="fa fa-folder-open" aria-hidden="true"></i>
+                    <span class="nav-item">Categories</span>
+                </a>
+            </li>
+
+            <li>
+                <a href="#">
+                    <i class="fa fa-database" aria-hidden="true"></i>
+                    <span class="nav-item">Report</span>
+                </a>
+            </li>
+
+            <li>
+                <a href="#" class="logout">
+                    <i class="fa fa-sign-out" aria-hidden="true"></i>
+                    <span class="nav-item">Log Out</span>
+                </a>
+            </li>
+
+        </ul>
+
+
+        </nav>
+
+        <section class="main">
+            <div class="main-top">
+                <h1>Category</h1> 
+                <i class="fa fa-cogs" aria-hidden="true"></i>
+            </div>
+        
+  
+        <section class="category">
+            <div class="category-list">
+                <h1>Category List</h1>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Category Name</th>
+                            <th>Product Name(s)</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+
+
+                    <tbody>
+                        <tr>
+                            <td class="CategoryId">C01</td>
+                            <td class="categoryName">Concert</td>
+                            <td class="productName">
+                                <div>BlackPink Concert</div>
+                                <div>Angela Zhang Concert</div>
+                                <div>Xue ZhiQian Concert</div>
+                            </td>
+                            <td>
+                                <button onclick="editCategory(categoryID)">Edit</button>
+                                <button onclick="deleteCategory(categoryID)">Delete</button>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="CategoryId">C02</td>
+                            <td class="categoryName">Choir</td>
+                            <td class="productName">
+                                <div>The Sixteen Choir</div>
+                                <div>Vienna Boys' Choir</div>
+                            </td>
+                            <td>
+                                <button onclick="editCategory(categoryID)">Edit</button>
+                                <button onclick="deleteCategory(categoryID)">Delete</button>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="CategoryId">C03</td>
+                            <td class="categoryName">Live Band</td>
+                            <td class="productName">
+                                <div>Maneskin Live Band</div>
+                                <div>ColdPlay Live Band</div>
+                                <div>Maroon 5 Live Band</div>
+                            </td>
+                            <td>
+                                <button onclick="editCategory(categoryID)">Edit</button>
+                                <button onclick="deleteCategory(categoryID)">Delete</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+           
+
+
+            <form id="addCategoryForm">
+            <label for="categoryName">Category Name:</label>
+            <input type="text" id="categoryName" required>
+            <label for="productNames">Product Name(s) (eg:Pencil,Eraser):</label>
+            <input type="text" id="productNames" required>
+            <button type="button" onclick="addCategory()">Add Category</button>
+            </form>
+         </div>
+        </section>
+        </section>
+
+
+
+
+
+    <script src="./js/manageCategory.js"></script>
+</div>
+</body>
+</html>
