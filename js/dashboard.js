@@ -3,7 +3,7 @@
 //Bar Chart
 var barChartOption = {
     series:[{
-        data:[8, 6, 5],
+        data:[4, 3, 2],
         name:"Products",
     }],
     chart:{
@@ -67,6 +67,7 @@ var barChartOption = {
     xaxis:{
         categories:["BlackPink Concert", "Xue ZhiQian Concert", "Maneskin Live Band"],
         title:{
+            text:"Music Shows",
             style:{
                 color:"black",
             },
@@ -88,7 +89,7 @@ var barChartOption = {
 
     yaxis:{
         title:{
-            text:"Count",
+            text:"Customer Quantity",
             style:{
                 color:"black",
             },
@@ -116,11 +117,8 @@ barChart.render();
 //Area Chart
 var areaChartOptions = {
     series:[{
-        name:"Purchase Orders",
-        data:[31, 40, 28, 51, 42, 109, 100, 52],
-    },{
     name:"Sales Orders",
-    data:[11, 32, 45, 32, 34, 52, 41, 55],
+    data:[6, 20, 35, 32, 35, 42, 41, 55],
     }],
     chart:{
         type:"area",
@@ -131,7 +129,7 @@ var areaChartOptions = {
             show:false,
         },
     },
-    colors:["#00ab57", "#d50000"],
+    colors:["#00ab57"],
     labels:["Jan","Feb","Mar","Apr","May","Jun","July","Aug"],
     dataLabels:{
         enabled:false,
@@ -166,15 +164,16 @@ var areaChartOptions = {
         show:true,
         position:"top",
     },
-    markers:{
-        size:6,
-        strokeColors:"#1b2635",
-        strokeWidth:3,
-    },
     stroke:{
         curve:"smooth",
     },
     xaxis:{
+        title:{
+            text:"Month 2024",
+            style:{
+                color:"black",
+            },
+        },
         axisBorder:{
             color:"#55596e",
             show:true,
@@ -192,19 +191,7 @@ var areaChartOptions = {
     },
     yaxis:
     [
-        {
-            title:{
-              text:"Purchase Orders",
-              style:{
-                colors:"black",
-              },
-            },
-            labels:{
-                style:{
-                    colors:["black"],
-                },
-            },
-        },
+        
         {
             opposite:true,
             title:{
