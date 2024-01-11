@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BTT Music Shows Booking Ticket</title>
+    <link rel="stylesheet" href="./css/manageMember.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+    <div class="container">
+        <nav>
+            <ul>    
+                <li><a href="#" class="logo">
+                    <img src="./images/logo.png">
+                    <span class="nav-item">Admin</span>
+                </a></li>
+
+                <li>
+                    <a href="./adminDashboard.html">
+                        <i class="fa fa-tachometer" aria-hidden="true"></i>
+                        <span class="nav-item">Dashboard</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="./manage staff.html">
+                        <i class="fa fa-user" aria-hidden="true"></i>
+                        <span class="nav-item">Manage Staff</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="./manageMemberpg.html">
+                        <i class="fa fa-id-card" aria-hidden="true"></i>
+                        <span class="nav-item">Manage Member</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="./manage cus.html">
+                        <i class="fa fa-users" aria-hidden="true"></i>
+                        <span class="nav-item">Manage Customer</span>
+                    </a>
+                </li>
+
+                
+        
+
+            <li>
+                <a href="./manageMemberpg.html">
+                    <i class="fa fa-archive" aria-hidden="true"></i>
+                    <span class="nav-item">Member</span>
+                </a>
+            </li>
+
+            <li>
+                <a href="./manageCategorypg.html">
+                    <i class="fa fa-folder-open" aria-hidden="true"></i>
+                    <span class="nav-item">Categories</span>
+                </a>
+            </li>
+
+            
+            <li>
+                <a href="./manageorderpg.html">
+                    <i class="fa fa-shopping-bag" aria-hidden="true"></i>
+                    <span class="nav-item">Order</span>
+                </a>
+            </li>
+
+            <li>
+                <a href="./print.html">
+                    <i class="fa fa-database" aria-hidden="true"></i>
+                    <span class="nav-item">Report</span>
+                </a>
+            </li>
+
+            <li>
+                <a href="./adminloginfrm.html" class="logout">
+                    <i class="fa fa-sign-out" aria-hidden="true"></i>
+                    <span class="nav-item">Log Out</span>
+                </a>
+            </li>
+
+        </ul>
+
+
+        </nav>
+
+        <section class="main">
+            <div class="main-top">
+                <h1>Member</h1> 
+                <i class="fa fa-cogs" aria-hidden="true"></i>
+            </div>
+
+
+            <div class="main-box">
+                <div class="box">
+                    <div class="box-inner">
+                        <h3>BASE</h3>
+                    </div>
+                    <h1>Plan RM59.90</h1>
+                </div>
+                
+                <div class="box">
+                    <div class="box-inner">
+                        <h3>Standard</h3>
+                    </div>
+                    <h1>Plan RM99.90</h1>
+                </div>
+    
+                <div class="box">
+                    <div class="box-inner">
+                        <h3>Premium</h3>
+                    </div>
+                    <h1>Plan RM129.90</h1>
+                </div>
+            </div>
+        
+        <section class="Member">
+            <div class="Member-list">
+                <div class="add-button-container">
+                    <button class="add-button" onclick="openAddMemberModal()">ADD</button>
+                </div>
+                <h1>Membership List</h1>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Membership Name</th>
+                            <th>Level</th>
+                            <th>Date Subscription</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+
+
+                    <tbody>
+                        <tr>
+                            <td class="memberId">M01</td>
+                            <td class="memberName">Johnson</td>
+                            <td class="memberLevel">Premium</td>
+                            <td class="date">23/3/2024</td>
+                            <td>
+                                <button class="view-button">VIEW</button>
+                                <button class="edit-button" onclick="openEditModal('M01', 'Johnson', 'Premium', '23/3/2024')">EDIT</button>
+
+                                <button class="delete-button">DELETE</button>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="memberID">M02</td>
+                            <td class="memberName">Khoo Shu Jun</td>
+                            <td class="memberLevel">Standard</td>
+                            <td class="date">24/2/2024</td>
+                            <td>
+                                <button class="view-button">VIEW</button>
+                                <button class="edit-button" onclick="openEditModal('M02', 'Khoo Shu Jun', 'Standard', '24/2/2024')">EDIT</button>
+
+                                <button class="delete-button">DELETE</button>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="memberID">M03</td>
+                            <td class="memberName">John Doe</td>
+                            <td class="memberLevel">Base</td>
+                            <td class="date">31/11/2023</td>
+                            <td>
+                                <button class="view-button">VIEW</button>
+                                <button class="edit-button" onclick="openEditModal('M03', 'John Doe', 'Base', '31/11/2023')">EDIT</button>
+
+                                <button class="delete-button">DELETE</button>
+                            </td>
+                        </tr>
+
+                        
+                        <tr>
+                            <td class="memberID">M04</td>
+                            <td class="memberName">Teo Yao Yao</td>
+                            <td class="memberLevel">Standard</td>
+                            <td class="date">1/1/2024</td>
+                            <td>
+                                <button class="view-button">VIEW</button>
+                                <button class="edit-button" onclick="openEditModal('M04', 'Teo Yao Yao', 'Standard', '1/1/2024')">EDIT</button>
+
+                                <button class="delete-button">DELETE</button>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="memberID">M05</td>
+                            <td class="memberName">Tee Xue Ni</td>
+                            <td class="memberLevel">Base</td>
+                            <td class="date">2/1/2024</td>
+                            <td>
+                                <button class="view-button">VIEW</button>
+                                <button class="edit-button" onclick="openEditModal('M05', 'Tee Xue Ni', 'Base', '2/1/2024')">EDIT</button>
+
+                                <button class="delete-button">DELETE</button>
+                            </td>
+                        </tr>
+
+                    </tbody>
+                </table>
+
+            </div>
+        </section>
+
+
+    </div>
+
+
+    <div id="addMemberModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('addMemberModal')">&times;</span>
+            <h2>Add New Member</h2>
+            <br>
+            <form id="addMemberForm">
+                <label for="memberID">ID:</label>
+                <input type="text" id="memberID" name="memberID" required>
+                <br>
+                <label for="memberName">Member Name:</label>
+                <input type="text" id="memberName" name="memberName" required>
+                <br>
+                <label for="memberLevel">Level:</label>
+                <input type="text" id="memberLevel" name="memberLevel" required>
+                <br>
+                <label for="date">Date:</label>
+                <input type="text" id="date" name="date" required>
+               <br>
+               <br>
+                <button type="button" onclick="addMember(memberID,memberName,memberLevel,date)">Add Member</button>
+            </form>
+        </div>
+    </div>
+
+    <div id="editMemberModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('editMemberModal')">&times;</span>
+            <h2>Edit Member</h2>
+            <form id="editMemberForm">
+                <label for="editmemberID">ID:</label>
+                <input type="text" id="editmemberID" name="editmemberID" required>
+    
+                <label for="editmemberName">Member Name:</label>
+                <input type="text" id="editmemberName" name="editmemberName" required>
+    
+                <label for="editmemberLevel">Level:</label>
+                <input type="text" id="editmemberLevel" name="editmemberLevel" required>
+    
+                <label for="editdate">Date:</label>
+                <input type="text" id="editdate" name="editdate" required>
+    
+                <button type="button" onclick="saveEditedMember()">Save Changes</button>
+            </form>
+        </div>
+    </div>
+
+
+
+    <script src="./js/manageMember.js"></script>
+    
+</body>
+</html>
