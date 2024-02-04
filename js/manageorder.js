@@ -66,4 +66,17 @@ function saveEditedModal() {
     }
 
     closeList('editOrder');
+
+    function deleteOrder(orderId) {
+        var rows = document.querySelectorAll('.table tbody tr');
+    
+        for (var i = 0; i < rows.length; i++) {
+            var orderIdCell = rows[i].querySelector('td');
+            if (orderIdCell && orderIdCell.textContent.trim() === orderId) {
+                rows[i].remove();
+                break;
+            }
+        }
+    }
+    
 }

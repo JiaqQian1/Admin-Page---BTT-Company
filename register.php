@@ -1,15 +1,15 @@
 <?php
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
-        $username = $_POST['username'];
-        $email = $_POST['email'];
-        $password = $_POST['password'];
+        $username = $_POST['adminusername'];
+        $email = $_POST['adminemail'];
+        $password = $_POST['adminpassword'];
 
-        $conn = new mysqli('localhost', 'root', '', 'adminmusicshow');
+        $conn = new mysqli('localhost', 'root', '', 'musicshow');
         if ($conn->connect_error) {
             die('Connection Failed: ' . $conn->connect_error);
         } else {
             // Check if the username already exists
-            $checkStmt = $conn->prepare("SELECT * FROM login WHERE username = ?");
+            $checkStmt = $conn->prepare("SELECT * FROM adminloginp WHERE adminusername = ?");
             $checkStmt->bind_param("s", $username);
             $checkStmt->execute();
             $checkResult = $checkStmt->get_result();
@@ -20,7 +20,7 @@
                 echo 'window.location.href = "adminloginfrm.html";</script>';
             } else {
                 // Continue with the registration process
-                $stmt = $conn->prepare("INSERT INTO login (username, email, password) VALUES (?, ?, ?)");
+                $stmt = $conn->prepare("INSERT INTO adminloginp (adminusername, adminemail, adminpassword) VALUES (?, ?, ?)");
                 $stmt->bind_param("sss", $username, $email, $password);
                 $stmt->execute();
                 $stmt->close();
