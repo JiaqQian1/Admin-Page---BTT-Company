@@ -1,79 +1,75 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BTT Music Show Booking Ticket</title>
-    <link rel="shortcut icon" href="./images/adminicon.png">
-    <link rel="shortcut icon" href="images/fav icon.png">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,500;1,700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="./css/adminloginfrm.css">
-</head>
-<body>
-    <div class="container">
-        <form action="login.php" method="post" class="form " id="login">
-            <h1 class="form_title">Admin Login</h1>
-            <div class="form_message form_message--error"></div>
-            <div class="form_input-group">
-                <input type="text" class="form_input" autofocus placeholder="Email" name="adminemail" id="email">
-                <div class="form_input-error-message"></div>
-            </div>
-            <div class="form_input-group">
-                <input type="password" class="form_input" autofocus placeholder="Password" name="adminpassword">
-                <div class="form_input-error-message"></div>
-            </div>
-            <button class="form_button" type="submit">Continue</button>
-            <p class="form_text">
-                <a href="#" class="form_link" id="linkResetPassword">Forgot your password?</a>
-            </p>
-            <p class="form_text">
-                <a class="form_link" href="#" id="linkCreateAccount" >Don't have an account? Create account</a>
-            </p>   
-        </form>
-        <form action="register.php" method="post" class="form form--hidden" id="createAccount">
-            <h1 class="form_title">Admin Create Account</h1>
-            <div class="form_message form_message--error"></div>
-            <div class="form_input-group">
-                <input type="text" id="signupUsername" class="form_input" autocomplete="off" autofocus placeholder="Username" name="adminusername">
-                <div class="form_input-error-message"></div>
-            </div>
-            <div class="form_input-group">
-                <input type="text" class="form_input" autocomplete="off" autofocus placeholder="Email Address" name="adminemail">
-                <div class="form_input-error-message"></div>
-            </div>
-            <div class="form_input-group">
-                <input type="password" class="form_input" autocomplete="off" autofocus placeholder="Password" name="adminpassword">
-                <div class="form_input-error-message"></div>
-            </div>
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>BTT Music Show Booking Ticket</title>
+        <link rel="shortcut icon" href="./images/adminicon.png">
+        <link rel="shortcut icon" href="images/fav icon.png">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,500;1,700&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="./css/adminloginfrm.css">
+    </head>
+    <body>
+        <div class="container">
+            <form action="login.php" method="post" class="form " id="login">
+                <h1 class="form_title">Admin Login</h1>
+                <div class="form_message form_message--error"></div>
+                <div class="form_input-group">
+                    <input type="text" class="form_input" autofocus placeholder="Email" name="adminemail" id="email">
+                    <div class="form_input-error-message"></div>
+                </div>
+                <div class="form_input-group">
+                    <input type="password" class="form_input" autofocus placeholder="Password" name="adminpassword">
+                    <div class="form_input-error-message"></div>
+                </div>
+                <button class="form_button" type="submit">Continue</button>
+                <p class="form_text">
+                    <a href="#" class="form_link" id="linkResetPassword">Forgot your password?</a>
+                </p>
+                <p class="form_text">
+                    <a class="form_link" href="#" id="linkCreateAccount" >Don't have an account? Create account</a>
+                </p>   
+            </form>
+            <form action="register.php" method="post" class="form form--hidden" id="createAccount">
+                <h1 class="form_title">Admin Create Account</h1>
+                <div class="form_message form_message--error"></div>
+                <div class="form_input-group">
+                    <input type="text" id="signupUsername" class="form_input" autocomplete="off" autofocus placeholder="Username" name="adminusername">
+                    <div class="form_input-error-message"></div>
+                </div>
+                <div class="form_input-group">
+                    <input type="text" class="form_input" autocomplete="off" autofocus placeholder="Email Address" name="adminemail">
+                    <div class="form_input-error-message"></div>
+                </div>
+                <div class="form_input-group">
+                    <input type="password" class="form_input" autocomplete="off" autofocus placeholder="Password" name="adminpassword">
+                    <div class="form_input-error-message"></div>
+                </div>
 
-            <button class="form_button" type="submit">Continue</button>
-            <p class="form_text">
-                <a class="form_link" href="#" id="linkLogin" >Already have an account? Sign In</a>
-            </p>   
-        </form>
-        <form action="login.php" class="form" id="resetPassword">
-            <h1 class="form_title">Reset Password</h1>
-            <div class="form_message form_message--error"></div>
-            <div class="form_input-group">
-                <input type="text" class="form_input" autofocus placeholder="Username or email">
-                <div class="form_input-error-message"></div>
-            </div>
-            <div class="form_input-group">
-                <input type="text" id="signupUsername" class="form_input" autocomplete="off" autofocus placeholder="New password">
-                <div class="form_input-error-message"></div>
-            </div>
-            <div class="form_input-group">
-                <input type="password" class="form_input" autocomplete="off" autofocus placeholder="Confirm password">
-                <div class="form_input-error-message"></div>
-            </div>
-            <button class="form_button" type="submit">Continue</button>
-            <p class="form_text">
-                <a class="form_link" href="#" id="linkLoginFormReseT" >Go back</a>
-            </p>
-        </form>
-    </div>
-    <script src="./js/loginfrm.js"></script>
-</body>
-</html>
+                <button class="form_button" type="submit">Continue</button>
+                <p class="form_text">
+                    <a class="form_link" href="#" id="linkLogin" >Already have an account? Sign In</a>
+                </p>   
+            </form>
+            <form action="resetpass.php" method="post" class="form" id="resetPassword">
+                <h1 class="form_title">Reset Password</h1>
+                <div class="form_message form_message--error"></div>
+                <div class="form_input-group">
+                    <input type="text" class="form_input" autofocus placeholder="Email" name="adminemail">
+                    <div class="form_input-error-message"></div>
+                </div>
+                <div class="form_input-group">
+                    <input type="password" class="form_input" autocomplete="off" autofocus placeholder="password" name="newadminpassword">
+                    <div class="form_input-error-message"></div>
+                </div>
+                <button class="form_button" type="submit">Continue</button>
+                <p class="form_text">
+                    <a class="form_link" href="#" id="linkLoginFormReseT" >Go back</a>
+                </p>
+            </form>
+        </div>
+        <script src="./js/loginfrm.js"></script>
+    </body>
+    </html>
