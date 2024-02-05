@@ -1,4 +1,4 @@
-        <?php
+<?php
         /*require_once('db.php');
         $query = "select * from orderlist";
         $result = mysqli_query($con, $query);
@@ -109,9 +109,10 @@
     
                 <section class="order">
                     <div class="order-list">
-                        <div class="add-button-container">
-                            <button class="add-button" onclick="openAddOrder()">ADD</button>
-                        </div>
+                    <div class="add-button-container">
+                        <a class="add-button" href="manageorderpg(add).php" onclick="openAddOrder()">ADD</a>
+                    </div>
+
                         <h1>Order List</h1>
                         <table class="table">
                             <thead>
