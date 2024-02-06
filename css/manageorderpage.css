@@ -10,9 +10,7 @@
     font-family: "Poppins", sans-serif;
 }
 
-body {
-    background: rgb(226, 226, 226);
-}
+
 
 nav {
     position: sticky;
@@ -213,6 +211,10 @@ a:hover i {
         background-color: #258C55;
     }
 
+    .view-button{
+        display: flex;
+    }
+
 
     .List {
         display: none;
@@ -273,29 +275,17 @@ a:hover i {
     #addOrderForm button:hover {
         background-color: #45dd8a;
     }
-    
-    #editOrder{
-        width:500px;
+
+    .action-button {
+        display: inline-block;
+        margin-right: 10px; /* Adjust the margin as needed */
     }
     
-    #editOrder label{
-        font-size:25px;
+    /* If you want to align the buttons vertically on smaller screens, you can use media queries */
+    @media (max-width: 768px) {
+        .action-button {
+            display: block;
+            margin-bottom: 10px; /* Adjust the margin as needed */
+        }
     }
     
-    #editOrder input{
-        width:500px;
-        height:30px;
-        border-radius: 5px;
-        border:1px solid black;
-    }
-    
-    #editOrder button{
-        background-color:#30955e;
-        color:white;
-        font-size:20px;
-        border-radius:5px;
-        margin-left: 40%;
-    }
-    #editOrder button:hover {
-        background-color: #45dd8a;
-    }

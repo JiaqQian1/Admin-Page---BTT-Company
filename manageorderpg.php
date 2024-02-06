@@ -136,11 +136,19 @@
                                 <td><?php echo $row['ticketdetails'];?></td>
                                 <td><?php echo $row['seat number'];?></td>
                                 <td>
-                                    <button class="view-button" onclick="openViewModal('<?php echo $row['id']; ?>', '<?php echo $row['name']; ?>', '<?php echo $row['date']; ?>', '<?php echo $row['ticketdetails']; ?>', '<?php echo $row['seat number']; ?>')">View</button>
-                                        <button class="edit-button" onclick="openEditModal('<?php echo $row['id']; ?>', '<?php echo $row['name']; ?>', '<?php echo $row['date']; ?>', '<?php echo $row['ticketdetails']; ?>', '<?php echo $row['seat number']; ?>')">Edit</button>
+                                <form action="" method="post">
+                                            <input type="hidden" name="id" value="<?php echo $row['id'] ?>">
+                                            <button><input type="submit" name="delete" id="view-btn" class="view-button" value="View" ></button>
+                                        </form>
+                                    
+                                    <form action="manageorderpg(edit).php" method="post">
+                                            <input type="hidden" name="id" value="<?php echo $row['id'] ?>">
+                                            <button><input type="submit" name="delete" id="edit-btn" class="edit-button" value="Edit" ></button>
+                                        </form>
+
                                         <form action="manageorderpg(delete).php" method="post">
                                             <input type="hidden" name="id" value="<?php echo $row['id'] ?>">
-                                            <input type="submit" name="delete" class="delete-button" value="Delete" display: flex>
+                                            <button><input type="submit" name="delete" class="delete-button" value="Delete"></button>
                                         </form>
                                 </td>
                             </tr>
@@ -162,33 +170,7 @@
                     </div>
                             
     
-    
-                          
-        
-            <div id="editOrder" class="List">
-                <div class="order-content">
-                    <span class="close" onclick="closeList('editOrder')">&times;</span>
-                    <h2>Edit</h2>
-                    <form id="editOrderForm">
-                        <label for="editOrderId">ID:</label>
-                        <input type="text" id="editOrderId" name="editOrderId" required>
-            
-                        <label for="editName">Name:</label>
-                        <input type="text" id="editName" name="editName" required>
-            
-                        <label for="editOrderDate">Date:</label>
-                        <input type="text" id="editOrderDate" name="editOrderDate" required>
-            
-                        <label for="editTicketDetails">Ticket Details:</label>
-                        <input type="text" id="editTicketDetails" name="editTicketDetails" required>
-    
-                        <label for="editNumber">Seat Number:</label>
-                        <input type="text" id="editNumber" name="editNumber" required>
-            
-                        <button type="button" onclick="saveEditedModal()">Save Changes</button>
-                    </form>
-                </div>
-            </div>
+
             </section>
             </div>
         
