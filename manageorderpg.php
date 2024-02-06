@@ -138,7 +138,10 @@
                                 <td>
                                     <button class="view-button" onclick="openViewModal('<?php echo $row['id']; ?>', '<?php echo $row['name']; ?>', '<?php echo $row['date']; ?>', '<?php echo $row['ticketdetails']; ?>', '<?php echo $row['seat number']; ?>')">View</button>
                                         <button class="edit-button" onclick="openEditModal('<?php echo $row['id']; ?>', '<?php echo $row['name']; ?>', '<?php echo $row['date']; ?>', '<?php echo $row['ticketdetails']; ?>', '<?php echo $row['seat number']; ?>')">Edit</button>
-                                        <button class="delete-button" onclick="deleteOrder('<?php echo $row['id']; ?>')">Delete</button>
+                                        <form action="manageorderpg(delete).php" method="post">
+                                            <input type="hidden" name="id" value="<?php echo $row['id'] ?>">
+                                            <input type="submit" name="delete" class="delete-button" value="Delete" display: flex>
+                                        </form>
                                 </td>
                             </tr>
                             <?php

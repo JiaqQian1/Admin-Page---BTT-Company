@@ -1,3 +1,30 @@
+<?php
+require_once 'db.php'; // Assuming this file contains your database connection code
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // Retrieve form data
+    $name = $_POST["name"];
+    $date = $_POST["date"];
+    $ticketDetails = $_POST["ticketdetails"];
+    $seatNumber = $_POST["seat_number"];
+
+    // Insert data into the orderlist table
+    $query = "INSERT INTO `orderlist` (`name`, `date`, `ticketdetails`, `seat number`) 
+              VALUES ('$name', '$date', '$ticketDetails', '$seatNumber')";
+    
+    $result = mysqli_query($con, $query);
+
+    if ($result) {
+        // Insertion successful, redirect to the desired page
+        header("Location: manageorderpg.php"); // Change this to the desired page
+        exit();
+    } else {
+        // Insertion failed, handle the error as needed
+        echo "Error: " . mysqli_error($con);
+    }
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -18,7 +45,7 @@
         }
 
         form {
-            width: 300px; /* You can adjust the width as needed */
+            width: 300px; 
             display: flex;
             flex-direction: column;
         }
@@ -48,7 +75,7 @@
         <input type="text" id="name" name="name" required>
 
         <label for="date">Date:</label>
-        <input type="text" id="date" name="date" required>
+        <input type="date" id="date" name="date" required>
 
         <label for="ticketdetails">Ticket Details:</label>
         <input type="text" id="ticketdetails" name="ticketdetails" required>
@@ -60,3 +87,4 @@
     </form>
 </body>
 </html>
+
