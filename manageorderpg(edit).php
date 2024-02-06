@@ -44,19 +44,7 @@
 <body>
     <?php
     $connection = mysqli_connect("localhost", "root", "");
-    $db = mysqli_select_db($connection, 'musicshow');
-
-    $id = $_POST['id'];
-
-    $query = "SELECT * FROM orderlist WHERE id=?";
-    $stmt = mysqli_prepare($connection, $query);
-    mysqli_stmt_bind_param($stmt, "i", $id);
-    mysqli_stmt_execute($stmt);
-
-    $result = mysqli_stmt_get_result($stmt);
-
-    if ($row = mysqli_fetch_array($result)) {
-    ?>
+    
         <div class="container">
             <div class="jumbotron">
                 <h2>Edit Order</h2>

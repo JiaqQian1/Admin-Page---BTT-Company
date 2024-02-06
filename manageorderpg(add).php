@@ -8,20 +8,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $ticketDetails = $_POST["ticketdetails"];
     $seatNumber = $_POST["seat_number"];
 
-    // Insert data into the orderlist table
-    $query = "INSERT INTO `orderlist` (`name`, `date`, `ticketdetails`, `seat number`) 
-              VALUES ('$name', '$date', '$ticketDetails', '$seatNumber')";
-    
-    $result = mysqli_query($con, $query);
-
-    if ($result) {
-        // Insertion successful, redirect to the desired page
-        header("Location: manageorderpg.php"); // Change this to the desired page
-        exit();
-    } else {
-        // Insertion failed, handle the error as needed
-        echo "Error: " . mysqli_error($con);
-    }
+    // Insert data i
 }
 ?>
 
