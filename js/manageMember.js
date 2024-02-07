@@ -40,15 +40,14 @@ function addMember(memberID,memberName,memberLevel,date) {
 }
 
 
-function openEditModal(memberID, memberName, memberLevel, date) {
-    openModal('editMemberModal');
-
-    // Populate the edit form with the current Member details
-    document.getElementById('editmemberId').value = memberID;
+function openEditModal(memberID, memberName, memberLevel, subscriptionDate) {
+    document.getElementById('editmemberID').value = memberID;
     document.getElementById('editmemberName').value = memberName;
     document.getElementById('editmemberLevel').value = memberLevel;
-    document.getElementById('editdate').value = date;
+    document.getElementById('editdate').value = subscriptionDate;
+    document.getElementById('editMemberModal').style.display = 'block';
 }
+
 
 function closeEditModal() {
     closeModal('editMemberModal');
