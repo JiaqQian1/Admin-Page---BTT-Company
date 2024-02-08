@@ -63,36 +63,40 @@ function addCategory() {
     document.getElementById('productNames').value = '';
 }
 
-function editCategory(categoryId, categoryName, productNames) {
-    const newName = prompt('Enter the new category name:', categoryName);
-    const newProductNames = prompt('Enter the new product names (eg: Pencil, Eraser):', productNames);
+function editCategory(categoryID) {
+    const newName = prompt('Enter the new category name:');
+    const newProductNames = prompt('Enter the new product names (eg:Pencil,Eraser):');
 
     if (newName !== null && newProductNames !== null) {
-        // Create a form element
+        // Create a form dynamically and submit it
         const form = document.createElement('form');
         form.method = 'post';
-        form.action = 'manageCategorypg.php'; // Point to the PHP script that handles form submission
+        form.action = ''; // Leave it empty to submit to the same page
 
-        // Create input fields for category ID, name, and product names
-        const categoryIdInput = document.createElement('input');
-        categoryIdInput.type = 'hidden';
-        categoryIdInput.name = 'categoryID';
-        categoryIdInput.value = categoryId;
-        form.appendChild(categoryIdInput);
+        const hiddenField1 = document.createElement('input');
+        hiddenField1.type = 'hidden';
+        hiddenField1.name = 'editCategory';
+        hiddenField1.value = 'true';
+        form.appendChild(hiddenField1);
 
-        const categoryNameInput = document.createElement('input');
-        categoryNameInput.type = 'hidden';
-        categoryNameInput.name = 'categoryName';
-        categoryNameInput.value = newName;
-        form.appendChild(categoryNameInput);
+        const hiddenField2 = document.createElement('input');
+        hiddenField2.type = 'hidden';
+        hiddenField2.name = 'categoryID';
+        hiddenField2.value = categoryID;
+        form.appendChild(hiddenField2);
 
-        const productNamesInput = document.createElement('input');
-        productNamesInput.type = 'hidden';
-        productNamesInput.name = 'productNames';
-        productNamesInput.value = newProductNames;
-        form.appendChild(productNamesInput);
+        const hiddenField3 = document.createElement('input');
+        hiddenField3.type = 'hidden';
+        hiddenField3.name = 'categoryName';
+        hiddenField3.value = newName;
+        form.appendChild(hiddenField3);
 
-        // Append the form to the document body and submit it
+        const hiddenField4 = document.createElement('input');
+        hiddenField4.type = 'hidden';
+        hiddenField4.name = 'productNames';
+        hiddenField4.value = newProductNames;
+        form.appendChild(hiddenField4);
+
         document.body.appendChild(form);
         form.submit();
     }

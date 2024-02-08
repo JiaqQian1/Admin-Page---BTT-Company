@@ -20,7 +20,7 @@ if(isset($_POST['addCategory'])) {
 }
 
 // Edit Category function
-if(isset($_POST['categoryID']) && isset($_POST['categoryName']) && isset($_POST['productNames'])) {
+if(isset($_POST['editCategory'])){
     $categoryId = $_POST['categoryID'];
     $categoryName = $_POST['categoryName'];
     $productNames = $_POST['productNames'];
@@ -180,22 +180,25 @@ $category = getCategories($con);
 
                     <tbody>
                     <?php
-                        // Display categories
+                      // Display categories
                         foreach ($category as $categories) {
-                            echo "<tr>";
-                            echo "<td class='CategoryId'>" . $categories["categoryID"] . "</td>";
-                            echo "<td class='categoryName'>" . $categories["categoryName"] . "</td>";
-                            echo "<td class='productName'>" . $categories["productNames"] . "</td>";
-                            echo "<td>";
-                            echo "<form method='post' action='manageCategorypg.php'>";
-                            echo "<input type='hidden' name='categoryID' value='" . $categories["categoryID"] . "'>";
-                            echo "<button type='submit' onclick='editCategory(" . $categories['categoryID'] . ", \"" . $categories['categoryName'] . "\", \"" . $categories['productNames'] . "\")'>Edit</button>";
-                            echo "<button type='submit' name='deleteCategory'>Delete</button>";
-                            echo "</form>";
-                            echo "</td>";
-                            echo "</tr>";
-                        }
-                    ?>  
+                        echo "<tr>";
+                        echo "<td class='CategoryId'>" . $categories["categoryID"] . "</td>";
+                        echo "<td class='categoryName'>" . $categories["categoryName"] . "</td>";
+                        echo "<td class='productName'>" . $categories["productNames"] . "</td>";
+                        echo "<td>";
+                        echo "<form method='post' action=''>";
+                        echo "<input type='hidden' name='categoryID' value='" . $categories["categoryID"] . "'>";
+                        echo "<input type='hidden' name='categoryName' value='" . $categories["categoryName"] . "'>";
+                        echo "<input type='hidden' name='productNames' value='" . $categories["productNames"] . "'>";
+                        echo "<button type='button' onclick='editCategory(" . $categories["categoryID"] . ", \"" . $categories["categoryName"] . "\", \"" . $categories["productNames"] . "\")'>Edit</button>";
+                        echo "<button type='submit' name='deleteCategory'>Delete</button>";
+                        echo "</form>";
+                        echo "</td>";
+                        echo "</tr>";
+                      }
+                        ?>
+
                     </tbody>
                 </table>
            
