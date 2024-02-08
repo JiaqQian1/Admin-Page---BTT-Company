@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 08, 2024 at 04:34 AM
--- Server version: 10.4.28-MariaDB
--- PHP Version: 8.0.28
+-- Generation Time: Feb 08, 2024 at 10:35 AM
+-- Server version: 10.4.32-MariaDB
+-- PHP Version: 8.0.30
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -37,6 +37,11 @@ CREATE TABLE `categories` (
 -- Dumping data for table `categories`
 --
 
+INSERT INTO `categories` (`categoryID`, `categoryName`, `productNames`) VALUES
+(1, 'Concert', 'BlackPink Concert, Angela Zhang Concert, Xue ZhiQian Concert'),
+(2, 'Choir', 'The Sixteen Choir, Vienna Boys Choir'),
+(3, 'Live Band', 'Maneskin Live Band, ColdPlay Live Band, Maroon 5 Live Band');
+
 --
 -- Indexes for dumped tables
 --
@@ -55,7 +60,7 @@ ALTER TABLE `categories`
 -- AUTO_INCREMENT for table `categories`
 --
 ALTER TABLE `categories`
-  MODIFY `categoryID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `categoryID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

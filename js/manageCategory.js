@@ -16,7 +16,6 @@ let categories = [
     }
 ];
 
-displayCategories(categories);
 
 function displayCategories(categories) {
     const categoryList = document.querySelector('.category-list tbody');
@@ -27,11 +26,9 @@ function displayCategories(categories) {
         row.innerHTML = `
             <td class="CategoryId">${category.id}</td>
             <td class="categoryName">${category.categoryName}</td>
-            <td class="productName">
-                <div>${renderProductList(category.productNames)}</div>
-            </td>
+            <td class="productName">${category.productNames.join(', ')}</td>
             <td>
-                <button onclick="editCategory(${category.id})">Edit</button>
+                <button onclick="editCategory(${category.id}, '${category.categoryName}', '${category.productNames.join(', ')}')">Edit</button>
                 <button onclick="deleteCategory(${category.id})">Delete</button>
             </td>
         `;
@@ -68,37 +65,34 @@ function addCategory() {
 
 function editCategory(categoryId, categoryName, productNames) {
     const newName = prompt('Enter the new category name:', categoryName);
-    const newProductNames = prompt('Enter the new product names (eg:Pencil,Eraser):', productNames);
+    const newProductNames = prompt('Enter the new product names (eg: Pencil, Eraser):', productNames);
 
     if (newName !== null && newProductNames !== null) {
+        // Create a form element
         const form = document.createElement('form');
         form.method = 'post';
-        form.action = 'manageCategorypg.php';
+        form.action = 'manageCategorypg.php'; // Point to the PHP script that handles form submission
 
-        const inputCategoryId = document.createElement('input');
-        inputCategoryId.type = 'hidden';
-        inputCategoryId.name = 'categoryID';
-        inputCategoryId.value = categoryId;
-        form.appendChild(inputCategoryId);
+        // Create input fields for category ID, name, and product names
+        const categoryIdInput = document.createElement('input');
+        categoryIdInput.type = 'hidden';
+        categoryIdInput.name = 'categoryID';
+        categoryIdInput.value = categoryId;
+        form.appendChild(categoryIdInput);
 
-        const inputCategoryName = document.createElement('input');
-        inputCategoryName.type = 'hidden';
-        inputCategoryName.name = 'categoryName';
-        inputCategoryName.value = newName;
-        form.appendChild(inputCategoryName);
+        const categoryNameInput = document.createElement('input');
+        categoryNameInput.type = 'hidden';
+        categoryNameInput.name = 'categoryName';
+        categoryNameInput.value = newName;
+        form.appendChild(categoryNameInput);
 
-        const inputProductNames = document.createElement('input');
-        inputProductNames.type = 'hidden';
-        inputProductNames.name = 'productNames';
-        inputProductNames.value = newProductNames;
-        form.appendChild(inputProductNames);
+        const productNamesInput = document.createElement('input');
+        productNamesInput.type = 'hidden';
+        productNamesInput.name = 'productNames';
+        productNamesInput.value = newProductNames;
+        form.appendChild(productNamesInput);
 
-        const inputEditCategory = document.createElement('input');
-        inputEditCategory.type = 'hidden';
-        inputEditCategory.name = 'editCategory';
-        inputEditCategory.value = true;
-        form.appendChild(inputEditCategory);
-
+        // Append the form to the document body and submit it
         document.body.appendChild(form);
         form.submit();
     }
@@ -107,23 +101,13 @@ function editCategory(categoryId, categoryName, productNames) {
 function deleteCategory(categoryId) {
     const confirmation = confirm('Are you sure you want to delete this category?');
     if (confirmation) {
-        const form = document.createElement('form');
-        form.method = 'post';
-        form.action = 'manageCategorypg.php';
-
-        const inputCategoryId = document.createElement('input');
-        inputCategoryId.type = 'hidden';
-        inputCategoryId.name = 'categoryID';
-        inputCategoryId.value = categoryId;
-        form.appendChild(inputCategoryId);
-
-        const inputDeleteCategory = document.createElement('input');
-        inputDeleteCategory.type = 'hidden';
-        inputDeleteCategory.name = 'deleteCategory';
-        inputDeleteCategory.value = true;
-        form.appendChild(inputDeleteCategory);
-
-        document.body.appendChild(form);
-        form.submit();
+        // Find category index
+        const categoryIndex = categories.findIndex(category => category.id === categoryId);
+        if (categoryIndex !== -1) {
+            // Remove category from array
+            categories.splice(categoryIndex, 1);
+            // Redisplay categories
+            displayCategories(categories);
+        }
     }
 }

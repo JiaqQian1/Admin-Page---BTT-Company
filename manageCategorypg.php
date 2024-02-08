@@ -1,12 +1,53 @@
 <?php 
-  $con = mysqli_connect("localhost", "root", "", "musicshow");
+$con = mysqli_connect("localhost", "root", "", "musicshow");
 
-  if(!$con) {
-     die("Connection error: " . mysqli_connect_error());
-  }
+if(!$con) {
+   die("Connection error: " . mysqli_connect_error());
+}
 
-//display table dynamically
-$category = getCategories($con);
+// Add Category function
+if(isset($_POST['addCategory'])) {
+    $categoryName = $_POST['categoryName'];
+    $productNames = $_POST['productNames'];
+
+    // Insert category into database
+    $sql = "INSERT INTO categories (categoryName, productNames) VALUES ('$categoryName', '$productNames')";
+    if (mysqli_query($con, $sql)) {
+        echo "Category added successfully";
+    } else {
+        echo "Error: " . $sql . "<br>" . mysqli_error($con);
+    }
+}
+
+// Edit Category function
+if(isset($_POST['categoryID']) && isset($_POST['categoryName']) && isset($_POST['productNames'])) {
+    $categoryId = $_POST['categoryID'];
+    $categoryName = $_POST['categoryName'];
+    $productNames = $_POST['productNames'];
+
+    // Update category in the database
+    $sql = "UPDATE categories SET categoryName='$categoryName', productNames='$productNames' WHERE categoryID='$categoryId'";
+    if (mysqli_query($con, $sql)) {
+        echo "Category updated successfully";
+    } else {
+        echo "Error: " . $sql . "<br>" . mysqli_error($con);
+    }
+}
+
+
+
+// Delete Category function
+if(isset($_POST['deleteCategory'])) {
+    $categoryID = $_POST['categoryID'];
+
+    // Delete category from database
+    $sql = "DELETE FROM categories WHERE categoryID='$categoryID'";
+    if (mysqli_query($con, $sql)) {
+        echo "Category deleted successfully";
+    } else {
+        echo "Error: " . $sql . "<br>" . mysqli_error($con);
+    }
+}
 
 // Function to retrieve categories from the database
 function getCategories($con) {
@@ -22,59 +63,8 @@ function getCategories($con) {
     return $categories;
 }
 
-// Add Category function
-if(isset($_POST['addCategory'])) {
-    $categoryName = $_POST['categoryName'];
-    $productNames = $_POST['productNames'];
-
-    // Insert category into database
-    $sql = "INSERT INTO categories (categoryName, productNames) VALUES ('$categoryName', '$productNames')";
-    if ($con->query($sql) === TRUE) {
-        echo "Category added successfully";
-        // Redirect to prevent form resubmission
-        header("Location: manageCategorypg.php");
-        exit;
-    } else {
-        echo "Error: " . $sql . "<br>" . $con->error;
-    }
-}
-
-// Edit Category function
-if(isset($_POST['editCategory'])) {
-    $categoryID = $_POST['categoryID'];
-    $categoryName = $_POST['categoryName'];
-    $productNames = $_POST['productNames'];
-
-    // Update category in database
-    $sql = "UPDATE categories SET categoryName='$categoryName', productNames='$productNames' WHERE categoryID='$categoryID'";
-    if ($con->query($sql) === TRUE) {
-        echo "Category updated successfully";
-        // Redirect to prevent form resubmission
-        header("Location: manageCategorypg.php");
-        exit;
-    } else {
-        echo "Error: " . $sql . "<br>" . $con->error;
-    }
-}
-
-// Delete Category function
-if(isset($_POST['deleteCategory'])) {
-    $categoryID = $_POST['categoryID'];
-
-    // Delete category from database
-    $sql = "DELETE FROM categories WHERE categoryID='$categoryID'";
-    if ($con->query($sql) === TRUE) {
-        echo "Category deleted successfully";
-        // Redirect to prevent form resubmission
-        header("Location: manageCategorypg.php");
-        exit;
-    } else {
-        echo "Error: " . $sql . "<br>" . $con->error;
-    }
-}
-
-// Close connection
-$con->close();
+// Get categories after actions
+$category = getCategories($con);
 ?>
 
 <!DOCTYPE html>
@@ -190,22 +180,22 @@ $con->close();
 
                     <tbody>
                     <?php
-                                // Display categories
-                                foreach ($category as $categories) {
-                                    echo "<tr>";
-                                    echo "<td class='CategoryId'>" . $categories["categoryID"] . "</td>";
-                                    echo "<td class='categoryName'>" . $categories["categoryName"] . "</td>";
-                                    echo "<td class='productName'>" . $categories["productNames"] . "</td>";
-                                    echo "<td>";
-                                    echo "<form method='post' action='manageCategorypg.php'>";
-                                    echo "<input type='hidden' name='categoryID' value='" . $categories["categoryID"] . "'>";
-                                    echo "<button type='submit' name='editCategory'>Edit</button>";
-                                    echo "<button type='submit' name='deleteCategory'>Delete</button>";
-                                    echo "</form>";
-                                    echo "</td>";
-                                    echo "</tr>";
-                                }
-                            ?>  
+                        // Display categories
+                        foreach ($category as $categories) {
+                            echo "<tr>";
+                            echo "<td class='CategoryId'>" . $categories["categoryID"] . "</td>";
+                            echo "<td class='categoryName'>" . $categories["categoryName"] . "</td>";
+                            echo "<td class='productName'>" . $categories["productNames"] . "</td>";
+                            echo "<td>";
+                            echo "<form method='post' action='manageCategorypg.php'>";
+                            echo "<input type='hidden' name='categoryID' value='" . $categories["categoryID"] . "'>";
+                            echo "<button type='submit' onclick='editCategory(" . $categories['categoryID'] . ", \"" . $categories['categoryName'] . "\", \"" . $categories['productNames'] . "\")'>Edit</button>";
+                            echo "<button type='submit' name='deleteCategory'>Delete</button>";
+                            echo "</form>";
+                            echo "</td>";
+                            echo "</tr>";
+                        }
+                    ?>  
                     </tbody>
                 </table>
            
@@ -231,3 +221,7 @@ $con->close();
 </div>
 </body>
 </html>
+
+<?php 
+     mysqli_close($con); // Close the database connection
+     ?>
