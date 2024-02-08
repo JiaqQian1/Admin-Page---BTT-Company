@@ -111,7 +111,6 @@ if(isset($_POST['viewMember'])) {
                     <img src="./images/logo.png">
                     <span class="nav-item">Admin</span>
                 </a></li>
-
                 <li>
                     <a href="./adminDashboard.html">
                         <i class="fa fa-tachometer" aria-hidden="true"></i>
@@ -126,7 +125,7 @@ if(isset($_POST['viewMember'])) {
                 </li>
 
                 <li>
-                    <a href="./manageMemberpg.html">
+                    <a href="./manageMemberpg.php">
                         <i class="fa fa-id-card" aria-hidden="true"></i>
                         <span class="nav-item">Manage Member</span>
                     </a>
@@ -143,14 +142,14 @@ if(isset($_POST['viewMember'])) {
         
 
             <li>
-                <a href="./manageMemberpg.php">
+                <a href="./manageProductpg.html">
                     <i class="fa fa-archive" aria-hidden="true"></i>
-                    <span class="nav-item">Member</span>
+                    <span class="nav-item">Product</span>
                 </a>
             </li>
 
             <li>
-                <a href="./manageCategorypg.html">
+                <a href="./manageCategorypg.php">
                     <i class="fa fa-folder-open" aria-hidden="true"></i>
                     <span class="nav-item">Categories</span>
                 </a>
@@ -177,6 +176,7 @@ if(isset($_POST['viewMember'])) {
                     <span class="nav-item">Log Out</span>
                 </a>
             </li>
+
 
         </ul>
 
