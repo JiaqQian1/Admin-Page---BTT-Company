@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 08, 2024 at 03:10 AM
+-- Generation Time: Feb 08, 2024 at 04:34 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.0.28
 
@@ -28,18 +28,14 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `categories` (
-  `CategoryID` varchar(10) NOT NULL,
-  `CategoryName` varchar(100) NOT NULL
+  `categoryID` int(11) NOT NULL,
+  `categoryName` varchar(255) NOT NULL,
+  `productNames` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `categories`
 --
-
-INSERT INTO `categories` (`CategoryID`, `CategoryName`) VALUES
-('C01', 'Concert'),
-('C02', 'Choir'),
-('C03', 'Live Band');
 
 --
 -- Indexes for dumped tables
@@ -49,7 +45,17 @@ INSERT INTO `categories` (`CategoryID`, `CategoryName`) VALUES
 -- Indexes for table `categories`
 --
 ALTER TABLE `categories`
-  ADD PRIMARY KEY (`CategoryID`);
+  ADD PRIMARY KEY (`categoryID`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `categories`
+--
+ALTER TABLE `categories`
+  MODIFY `categoryID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

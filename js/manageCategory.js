@@ -66,24 +66,64 @@ function addCategory() {
     document.getElementById('productNames').value = '';
 }
 
-function editCategory(categoryId) {
-    const newName = prompt('Enter the new category name:');
-    const newProductNames = prompt('Enter the new product names (eg:Pencil,Eraser):');
+function editCategory(categoryId, categoryName, productNames) {
+    const newName = prompt('Enter the new category name:', categoryName);
+    const newProductNames = prompt('Enter the new product names (eg:Pencil,Eraser):', productNames);
 
     if (newName !== null && newProductNames !== null) {
-        const categoryToUpdate = categories.find(category => category.id === categoryId);
-        if (categoryToUpdate) {
-            categoryToUpdate.categoryName = newName;
-            categoryToUpdate.productNames = newProductNames.split(',').map(name => name.trim());
-            displayCategories(categories);
-        }
+        const form = document.createElement('form');
+        form.method = 'post';
+        form.action = 'manageCategorypg.php';
+
+        const inputCategoryId = document.createElement('input');
+        inputCategoryId.type = 'hidden';
+        inputCategoryId.name = 'categoryID';
+        inputCategoryId.value = categoryId;
+        form.appendChild(inputCategoryId);
+
+        const inputCategoryName = document.createElement('input');
+        inputCategoryName.type = 'hidden';
+        inputCategoryName.name = 'categoryName';
+        inputCategoryName.value = newName;
+        form.appendChild(inputCategoryName);
+
+        const inputProductNames = document.createElement('input');
+        inputProductNames.type = 'hidden';
+        inputProductNames.name = 'productNames';
+        inputProductNames.value = newProductNames;
+        form.appendChild(inputProductNames);
+
+        const inputEditCategory = document.createElement('input');
+        inputEditCategory.type = 'hidden';
+        inputEditCategory.name = 'editCategory';
+        inputEditCategory.value = true;
+        form.appendChild(inputEditCategory);
+
+        document.body.appendChild(form);
+        form.submit();
     }
 }
 
 function deleteCategory(categoryId) {
     const confirmation = confirm('Are you sure you want to delete this category?');
     if (confirmation) {
-        categories = categories.filter(category => category.id !== categoryId);
-        displayCategories(categories);
+        const form = document.createElement('form');
+        form.method = 'post';
+        form.action = 'manageCategorypg.php';
+
+        const inputCategoryId = document.createElement('input');
+        inputCategoryId.type = 'hidden';
+        inputCategoryId.name = 'categoryID';
+        inputCategoryId.value = categoryId;
+        form.appendChild(inputCategoryId);
+
+        const inputDeleteCategory = document.createElement('input');
+        inputDeleteCategory.type = 'hidden';
+        inputDeleteCategory.name = 'deleteCategory';
+        inputDeleteCategory.value = true;
+        form.appendChild(inputDeleteCategory);
+
+        document.body.appendChild(form);
+        form.submit();
     }
 }

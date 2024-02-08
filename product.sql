@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 08, 2024 at 03:11 AM
+-- Generation Time: Feb 08, 2024 at 04:10 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.0.28
 
@@ -57,7 +57,6 @@ INSERT INTO `products` (`ProductID`, `ProductName`, `ProductType`, `ProductDate`
 -- Indexes for table `products`
 --
 ALTER TABLE `products`
-  ADD PRIMARY KEY (`ProductID`),
   ADD KEY `CategoryID` (`CategoryID`);
 
 --
