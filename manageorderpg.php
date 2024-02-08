@@ -75,7 +75,7 @@
         
                     
                     <li>
-                        <a href="./manageorderpg.html">
+                        <a href="./manageorderpg.php">
                             <i class="fa fa-shopping-bag" aria-hidden="true"></i>
                             <span class="nav-item">Order</span>
                         </a>
