@@ -244,12 +244,14 @@ if(isset($_POST['viewMember'])) {
                 echo "<td>";
                 echo "<form method='post' action='" . htmlspecialchars($_SERVER["PHP_SELF"]) . "'>";
                 echo "<input type='hidden' name='memberID' value='" . $member['member_id'] . "'>";
+                echo "<div class='button-grp'>";
                 echo "<button type='submit' name='viewMember' class='view-button'>VIEW</button>";
                 echo "</form>";
                 echo "<button type='button' class='edit-button' onclick=\"openEditModal('" . $member['member_id'] . "', '" . $member['member_name'] . "', '" . $member['member_level'] . "', '" . $member['subscription_date'] . "')\">EDIT</button>";
                 echo "<form method='post' action='" . htmlspecialchars($_SERVER["PHP_SELF"]) . "'>";
                 echo "<input type='hidden' name='memberID' value='" . $member['member_id'] . "'>";
                 echo "<button type='submit' name='deleteMember' class='delete-button'>DELETE</button>";
+                echo "</div>";
                 echo "</form>";
                 echo "</td>";
                 echo "</tr>";
