@@ -136,20 +136,22 @@
                                 <td><?php echo $row['ticketdetails'];?></td>
                                 <td><?php echo $row['seat number'];?></td>
                                 <td>
-                                <form action="" method="post">
-                                            <input type="hidden" name="id" value="<?php echo $row['id'] ?>">
-                                            <button><input type="submit" name="delete" id="view-btn" class="view-button" value="View" ></button>
-                                        </form>
-                                    
-                                    <form action="manageorderpg(edit).php" method="post">
-                                            <input type="hidden" name="id" value="<?php echo $row['id'] ?>">
-                                            <button><input type="submit" name="delete" id="edit-btn" class="edit-button" value="Edit" ></button>
-                                        </form>
+                                <div class="button-container">
+                                <form action="manageorderpg(view).php" method="post">
+                                        <input type="hidden" name="id" value="<?php echo $row['id'] ?>">
+                                        <button><input type="submit" name="view" id="edit-btn" class="edit-button" value="View"></button>
+                                    </form>
 
-                                        <form action="manageorderpg(delete).php" method="post">
-                                            <input type="hidden" name="id" value="<?php echo $row['id'] ?>">
-                                            <button><input type="submit" name="delete" class="delete-button" value="Delete"></button>
-                                        </form>
+                                    <form action="manageorderpg(edit).php" method="post">
+                                        <input type="hidden" name="id" value="<?php echo $row['id'] ?>">
+                                        <button><input type="submit" name="delete" id="edit-btn" class="edit-button" value="Edit"></button>
+                                    </form>
+
+                                    <form action="manageorderpg(delete).php" method="post">
+                                        <input type="hidden" name="id" value="<?php echo $row['id'] ?>">
+                                        <button><input type="submit" name="delete" class="delete-button" value="Delete"></button>
+                                    </form>
+                                </div>
                                 </td>
                             </tr>
                             <?php

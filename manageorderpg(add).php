@@ -1,14 +1,23 @@
 <?php
-require_once 'db.php'; // Assuming this file contains your database connection code
+require_once 'db.php'; 
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Retrieve form data
     $name = $_POST["name"];
     $date = $_POST["date"];
     $ticketDetails = $_POST["ticketdetails"];
     $seatNumber = $_POST["seat_number"];
 
-    // Insert data i
+    $query = "INSERT INTO `orderlist` (`name`, `date`, `ticketdetails`, `seat number`) 
+              VALUES ('$name', '$date', '$ticketDetails', '$seatNumber')";
+    
+    $result = mysqli_query($con, $query);
+
+    if ($result) {
+        header("Location: manageorderpg.php"); 
+        exit();
+    } else {
+        echo "Error: " . mysqli_error($con);
+    }
 }
 ?>
 
@@ -59,16 +68,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <h1>Add Order Information</h1>
     <form action="<?php echo $_SERVER["PHP_SELF"]; ?>" method="post">
         <label for="name">Name:</label>
-        <input type="text" id="name" name="name" required>
+        <input type="text" id="name" name="name" autocomplete="off" required>
 
         <label for="date">Date:</label>
         <input type="date" id="date" name="date" required>
 
         <label for="ticketdetails">Ticket Details:</label>
-        <input type="text" id="ticketdetails" name="ticketdetails" required>
+        <input type="text" id="ticketdetails" name="ticketdetails" autocomplete="off" required>
 
         <label for="seat_number">Seat Number:</label>
-        <input type="text" id="seat_number" name="seat number" required>
+        <input type="text" id="seat_number" name="seat number" autocomplete="off" required>
 
         <button type="submit">Add Order</button>
     </form>
