@@ -16,7 +16,6 @@ let categories = [
     }
 ];
 
-displayCategories(categories);
 
 function displayCategories(categories) {
     const categoryList = document.querySelector('.category-list tbody');
@@ -27,11 +26,9 @@ function displayCategories(categories) {
         row.innerHTML = `
             <td class="CategoryId">${category.id}</td>
             <td class="categoryName">${category.categoryName}</td>
-            <td class="productName">
-                <div>${renderProductList(category.productNames)}</div>
-            </td>
+            <td class="productName">${category.productNames.join(', ')}</td>
             <td>
-                <button onclick="editCategory(${category.id})">Edit</button>
+                <button onclick="editCategory(${category.id}, '${category.categoryName}', '${category.productNames.join(', ')}')">Edit</button>
                 <button onclick="deleteCategory(${category.id})">Delete</button>
             </td>
         `;
@@ -66,24 +63,55 @@ function addCategory() {
     document.getElementById('productNames').value = '';
 }
 
-function editCategory(categoryId) {
+function editCategory(categoryID) {
     const newName = prompt('Enter the new category name:');
     const newProductNames = prompt('Enter the new product names (eg:Pencil,Eraser):');
 
     if (newName !== null && newProductNames !== null) {
-        const categoryToUpdate = categories.find(category => category.id === categoryId);
-        if (categoryToUpdate) {
-            categoryToUpdate.categoryName = newName;
-            categoryToUpdate.productNames = newProductNames.split(',').map(name => name.trim());
-            displayCategories(categories);
-        }
+        // Create a form dynamically and submit it
+        const form = document.createElement('form');
+        form.method = 'post';
+        form.action = ''; // Leave it empty to submit to the same page
+
+        const hiddenField1 = document.createElement('input');
+        hiddenField1.type = 'hidden';
+        hiddenField1.name = 'editCategory';
+        hiddenField1.value = 'true';
+        form.appendChild(hiddenField1);
+
+        const hiddenField2 = document.createElement('input');
+        hiddenField2.type = 'hidden';
+        hiddenField2.name = 'categoryID';
+        hiddenField2.value = categoryID;
+        form.appendChild(hiddenField2);
+
+        const hiddenField3 = document.createElement('input');
+        hiddenField3.type = 'hidden';
+        hiddenField3.name = 'categoryName';
+        hiddenField3.value = newName;
+        form.appendChild(hiddenField3);
+
+        const hiddenField4 = document.createElement('input');
+        hiddenField4.type = 'hidden';
+        hiddenField4.name = 'productNames';
+        hiddenField4.value = newProductNames;
+        form.appendChild(hiddenField4);
+
+        document.body.appendChild(form);
+        form.submit();
     }
 }
 
 function deleteCategory(categoryId) {
     const confirmation = confirm('Are you sure you want to delete this category?');
     if (confirmation) {
-        categories = categories.filter(category => category.id !== categoryId);
-        displayCategories(categories);
+        // Find category index
+        const categoryIndex = categories.findIndex(category => category.id === categoryId);
+        if (categoryIndex !== -1) {
+            // Remove category from array
+            categories.splice(categoryIndex, 1);
+            // Redisplay categories
+            displayCategories(categories);
+        }
     }
 }
