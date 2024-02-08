@@ -9,46 +9,59 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <style>
-        body {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
-            margin: 0;
-            flex-direction: column;
-        }
+       body {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        margin: 0;
+        flex-direction: column;
+        background-color: #f5f5f5; 
+    }
 
-        form {
-            width: 300px; 
-            display: flex;
-            flex-direction: column;
-        }
+    .container {
+        background-color: #ffffff; 
+        border: 2px solid #4caf50; 
+        padding: 20px; 
+        border-radius: 5px; 
+        margin-bottom: 20px; 
+    }
 
-        label {
-            margin-bottom: 5px;
-        }
+    form {
+        width: 300px;
+        display: flex;
+        flex-direction: column;
+    }
 
-        input {
-            margin-bottom: 10px;
-            padding: 5px;
-        }
+    label {
+        margin-bottom: 10px;
+        margin-top: 5px;
+    }
 
-        button {
-            padding: 10px;
-            background-color: #4caf50;
-            color: white;
-            border: none;
-            cursor: pointer;
-        }
-        .cancel-button {
+    input {
+        margin-bottom: 10px;
+        padding: 5px;
+    }
+
+    button {
         padding: 10px;
-        background-color: rgba(0, 0, 0, 0);
-        color: black;
+        background-color: #4caf50;
+        color: white;
+        border: none;
+        cursor: pointer;
+    }
+
+    .cancel-button {
+        padding: 10px;
+        background-color: #4caf50;
+        color: #fff;
         border: none;
         cursor: pointer;
         text-align: center;
+        margin-top: 15px;
+        display: block;
+        text-decoration: none;
     }
-
         
     </style>
 <body>
@@ -69,27 +82,34 @@
     ?>
         <div class="container">
             <div class="jumbotron">
-                <h2>Edit Order</h2>
+                <h2>View Order</h2>
                 <hr>
-                <form action="" method="post">
+                    <form>
                     <input type="hidden" name="id" value="<?php echo $row['id']?>">
-                    <label for="name">Name</label>
-                    <input type="text" id="name" class="form-control" name="name" value="<?php echo $row['name']?>" autocomplete="off" required>
+                    <label for="name"></label>
+                    <p class="form-control">
+                        Name: <?= $row['name']?>
+                    </p>    
 
-                    <label for="date">Date</label>
-                    <input type="date" id="date" class="form-control" name="date" value="<?php echo $row['date']?>" autocomplete="off" required>
+                    <label for="date"></label>
+                    <p class="form-control">
+                        Date: <?= $row['date']?>
+                    </p>    
 
-                    <label for="ticketdetails">Ticket Details</label>
-                    <input type="text" id="ticketdetails" class="form-control" name="ticketdetails" value="<?php echo $row['ticketdetails']?>" autocomplete="off" required>
+                    <label for="ticketdetails"></label>
+                    <p class="form-control">
+                        Ticket Details: <?= $row['ticketdetails']?>
+                    </p>    
 
-                    <label for="seat_number">Seat Number</label>
-                    <input type="text" id="seat_number" class="form-control" name="seat_number" value="<?php echo $row['seat number']?>" autocomplete="off" required>
+                    <label for="seat_number"></label>
+                    <p class="form-control">
+                        Seat Number: <?= $row['seat number']?>
+                    </p>
 
-                    <button type="submit" name="edit" class="edit-button">Edit Order</button>
-
+                     
                     <a href="manageorderpg.php" class="cancel-button">Cancel</a>
-                </form>
             </div>
+    </form>
         </div>
 
         <?php
