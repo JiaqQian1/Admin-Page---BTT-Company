@@ -71,7 +71,7 @@ function editCategory(categoryID) {
         // Create a form dynamically and submit it
         const form = document.createElement('form');
         form.method = 'post';
-        form.action = 'manageCategory.php'; // Leave it empty to submit to the same page
+        form.action = 'manageCategorypg.php'; 
 
         const hiddenField1 = document.createElement('input');
         hiddenField1.type = 'hidden';
