@@ -14,7 +14,6 @@ function openAddOrder() {
 function addOrder(orderId, orderName, orderDate, ticketDetails, seatNumber) {
     var tbody = document.querySelector('.table tbody');
 
-    // Append new row 
     tbody.innerHTML += `
         <tr>
             <td>${orderId}</td>
@@ -30,14 +29,14 @@ function addOrder(orderId, orderName, orderDate, ticketDetails, seatNumber) {
         </tr>
     `;
 
-    // Close the modal
+
     closeList('addOrder');
 }
 
 function openEditModal(orderId, orderName, orderDate, ticketDetails, seatNumber) {
     openList('editOrder');
 
-    // Populate the edit form with the current order details
+    
     document.getElementById('editOrderId').value = orderId;
     document.getElementById('editName').value = orderName;
     document.getElementById('editOrderDate').value = orderDate;
